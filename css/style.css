@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Cores */
+  --color-dark: #0A0E1A;
+  --color-light: #F5F5F5;
+  --color-muted: #B0B0B8;
+  --color-gold: #F2C230;
+  --color-dark-text: #3a3a3a;
+  --color-card-bg: #1a2030;
+
+  /* Tipografia — famílias */
+  --font-display: 'Big Shoulders Display', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Tipografia — tamanhos display */
+  --text-h1: clamp(3rem, 7vw, 6.5rem);
+  --text-h2: clamp(2.2rem, 4vw, 3.5rem);
+  --text-h3-pillar: 1.75rem;
+  --text-h3-card: 1.35rem;
+  --text-stat-number: clamp(2.5rem, 5vw, 4rem);
+  --text-pillar-number: 4rem;
+  --text-logo: 1.15rem;
+
+  /* Tipografia — tamanhos body */
+  --text-body-lg: 1rem;
+  --text-body-md: 0.95rem;
+  --text-body-sm: 0.875rem;
+  --text-body-xs: 0.8rem;
+  --text-label: 0.75rem;
+
+  /* Espaçamento de seções */
+  --section-padding: 6rem 0;
+  --container-max: 1280px;
+  --container-px: 1.5rem;
+
+  /* Bordas */
+  --border-muted: 1px solid rgba(176, 176, 184, 0.12);
+  --border-muted-light: 1px solid rgba(176, 176, 184, 0.15);
+  --border-accent: 3px solid #F2C230;
+  --border-dark-muted: 1px solid rgba(10, 14, 26, 0.15);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: var(--font-body);
+    font-size: var(--text-body-md);
+    color: var(--color-dark-text);
+}
+
+
+.invisivel{
+    display: none !important;
+}
+
+/* MENU */
+
+#nav-logo a, i{
+    text-decoration: none;
+    font-size: var(--text-logo);
+    font-weight: 900;
+    cursor: pointer;
+
+    font-family: var(--font-display);
+}
+
+#nav-logo a{
+    color: var(--color-light);
+}
+
+#btn-nav{
+    color: var(--color-gold);
+}
+
+.nav-container{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 5%;
+
+    background-color: var(--color-dark);
+}
+
+#nav-mobile{
+    background-color: var(--color-dark);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    padding: 0.5rem 0;
+}
+
+#nav-mobile a{
+    text-decoration: none;
+    color: var(--color-muted);
+    padding: 0.5rem 0;
+
+    text-transform: uppercase;
+}
+
+#nav-btn-ctt{
+    background-color: var(--color-gold);
+    text-align: center;
+    margin: 2% 0;
+
+    color: var(--color-dark) !important;
+    font-weight: 600;
+
+    padding: 0.7rem;
+}
