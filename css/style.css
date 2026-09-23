@@ -61,7 +61,7 @@ body{
 
 .nav-container{
     width: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 999;
@@ -70,6 +70,11 @@ body{
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    transition: background-color 0.3s ease;
+}
+
+.nav-container.rolado{
+    background-color: var(--color-dark);
 }
 
 #nav-logo{
@@ -240,6 +245,45 @@ body{
 .btn-secondary:hover{
     border: 2px solid var(--color-gold);
     color: var(--color-gold);
+}
+
+/* COUNTER - MENU */
+
+#section-counter{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+
+    align-items: center;
+    
+    background-color: var(--color-gold);
+}
+
+.counter-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    padding: 4rem 0;
+
+    border-bottom: var(--border-dark-muted);
+}
+
+.counter-box:last-child{
+    border-bottom: none;
+}
+
+.counter-box h3{
+    color: var(--color-dark);
+    font-family: var(--font-display);
+    font-size: var(--text-h3-card);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums; /* evita o número "tremer" durante a contagem */
+}
+
+.counter-box p{
+    font-size: var(--text-body-sm);
 }
 
 /* DESKTOP - MENU */
