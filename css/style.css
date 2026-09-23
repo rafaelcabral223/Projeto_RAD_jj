@@ -180,7 +180,7 @@ body{
 #hero-conteudo h2{
     font-family: var(--font-display);
     font-size: var(--text-h1);
-    font-weight: 700;
+    font-weight: 900;
     text-transform: uppercase;
 }
 
@@ -253,7 +253,6 @@ body{
     width: 100%;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-
     align-items: center;
     
     background-color: var(--color-gold);
@@ -265,7 +264,7 @@ body{
     justify-content: center;
     flex-direction: column;
 
-    padding: 4rem 0;
+    padding: 2rem 0;
 
     border-bottom: var(--border-dark-muted);
 }
@@ -277,7 +276,7 @@ body{
 .counter-box h3{
     color: var(--color-dark);
     font-family: var(--font-display);
-    font-size: var(--text-h3-card);
+    font-size: var(--text-stat-number);
     font-weight: 700;
     font-variant-numeric: tabular-nums; /* evita o número "tremer" durante a contagem */
 }
@@ -341,4 +340,24 @@ body{
         text-align: left !important;
         max-width: 80%;
     }
+
+    /* MAIN COUNTER - DESKTOP */
+    
+}
+
+@media (min-width: 756px){
+
+    #section-counter{
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .counter-box{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-left: var(--border-dark-muted);
+
+        
+    }
+
 }
