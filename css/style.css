@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;500;600;800&family=Inter:wght@400;500;600;800&display=swap');
 
 :root {
   /* Cores */
@@ -75,6 +75,7 @@ body{
 
 .nav-container.rolado{
     background-color: var(--color-dark);
+    border-bottom: var(--border-muted-light);
 }
 
 #nav-logo{
@@ -277,13 +278,50 @@ body{
     color: var(--color-dark);
     font-family: var(--font-display);
     font-size: var(--text-stat-number);
-    font-weight: 700;
+    font-weight: 800;
     font-variant-numeric: tabular-nums; /* evita o número "tremer" durante a contagem */
 }
 
 .counter-box p{
     font-size: var(--text-body-sm);
 }
+
+/* HISTORIA - MOBILE */
+
+    #historia-container{
+        padding: 6rem 4%;
+        grid-template-columns: repeat(1, 1fr);
+        display: grid;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+
+    }
+
+    .historia-img img{
+        width: 100%;
+        border-radius: 2px;
+        object-fit: cover;
+        /* max-height: 400px; */
+    }
+
+    .historia-txt{
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        text-align: left;
+
+        gap: 1.2rem;
+    }
+
+    .historia-txt h2{
+        font-size: var(--text-h2);
+        font-family: var(--font-display);
+        color: var(--color-dark);
+        font-weight: 800;
+        text-align: center;
+        text-transform: uppercase;
+    }
 
 /* DESKTOP - MENU */
 
@@ -341,7 +379,18 @@ body{
         max-width: 80%;
     }
 
-    /* MAIN COUNTER - DESKTOP */
+    /* MAIN HISTORIA - DESKTOP */
+
+    #historia-container{
+        padding: 6rem 15%;
+
+        gap: 4rem;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .historia-txt h2{
+        text-align: left;
+    }    
     
 }
 
