@@ -94,7 +94,6 @@ body{
 
 #btn-nav{
     margin: 1rem 4%;
-    font-size: var(--text-logo);
     color: var(--color-gold);
     cursor: pointer;
     transition: transform 0.3s ease;
@@ -118,6 +117,13 @@ body{
     color: var(--color-muted);
     padding: 0.5rem 0;
     text-transform: uppercase;
+
+    font-size: var(--text-body-sm) !important;
+    transition: ease-in 0.2s;
+}
+
+#nav-mobile a:hover{
+    color: var(--color-light);
 }
 
 #nav-btn-ctt{
@@ -128,6 +134,14 @@ body{
     font-weight: 600;
     padding: 0.7rem !important;
     border-radius: 2px;
+    border: 2px solid var(--color-gold);
+    transition: 0.2 ease-in;
+}
+
+#nav-btn-ctt:hover{
+    border: 2px solid var(--color-gold);
+    background-color: transparent;
+    color: var(--color-gold) !important;
 }
 
 /* HERO */
@@ -165,6 +179,10 @@ body{
     text-transform: uppercase;
 }
 
+#hero-conteudo p{
+    color: var(--color-muted);
+}
+
 #hero-conteudo span{
     color: var(--color-gold);
 }
@@ -187,15 +205,17 @@ body{
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+    font-family: var(--font-display);
 }
 
 .btn{
-    padding: 0.9rem 2rem;
+    padding: 0.9rem 2.5rem;
     border-radius: 2px;
     text-decoration: none;
     font-weight: 600;
     text-transform: uppercase;
-    font-size: var(--text-body-sm);
+    font-size: var(--text-logo);
+    
 }
 
 .btn-primary{
@@ -228,7 +248,7 @@ body{
 
 
     .nav-container{
-        padding: 1rem 10%;
+        padding: 1rem 15%;
     }
 
     #nav-logo{
@@ -260,18 +280,21 @@ body{
     /* HERO -DESKTOP */
 
     #hero{
-        justify-content: left;
+        justify-content: left !important;
         text-align: left;
     }
 
     #hero-conteudo{
         text-align: left;
-        padding: 0 10%;
+        padding: 0 15%;
         width: 100%;
+
+        align-items: start;
     }
 
     #hero-conteudo p{
-        background-color: white;
         width: 100%;
+        text-align: left !important;
+        max-width: 80%;
     }
 }
