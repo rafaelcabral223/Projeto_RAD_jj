@@ -506,6 +506,15 @@ body {
         padding: 0.7rem 1.5rem !important;
     }
 
+    #nav-mobile a:not(#nav-btn-ctt) {
+        background: linear-gradient(var(--color-light), var(--color-light)) left bottom / 0% 2px no-repeat;
+        transition: background-size 0.3s ease;
+    }
+
+    #nav-mobile a:not(#nav-btn-ctt):hover {
+        background-size: 100% 2px;
+    }    
+
     /* ---------- HERO ---------- */
 
     .hero {
