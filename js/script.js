@@ -1,17 +1,30 @@
+// =========================================================
+// MENU MOBILE
+// =========================================================
+
 const btn = document.getElementById("btn-nav");
 const menu = document.getElementById("nav-mobile");
+
 btn.addEventListener("click", () => {
     btn.classList.toggle("fa-bars");
     btn.classList.toggle("fa-x");
     menu.classList.toggle("invisivel");
 });
 
+// =========================================================
+// BACKGROUND DO NAV AO ROLAR
+// =========================================================
+
 const nav = document.querySelector(".nav-container");
+
 window.addEventListener("scroll", () => {
     nav.classList.toggle("rolado", window.scrollY > 50);
 });
 
+// =========================================================
 // CONTADOR
+// =========================================================
+
 const contadores = document.querySelectorAll(".counter");
 const reduzirMovimento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
