@@ -121,6 +121,7 @@ body {
     color: var(--color-gold);
     cursor: pointer;
     transition: transform 0.3s ease;
+    font-size: var(--text-h3-card);
 }
 
 #btn-nav:active {
@@ -310,10 +311,18 @@ body {
     padding: 6rem var(--container-padding) 4rem;
 }
 
+.historia-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .historia-img img {
     width: 100%;
     object-fit: cover;
     border-radius: 2px;
+    
+    max-width: 550px;
 }
 
 .historia-txt {
@@ -520,12 +529,14 @@ body {
 
     .historia-container {
         grid-template-columns: repeat(2, 1fr);
-        gap: 4rem;
+        /* gap: 4rem; */
     }
 
     .historia-txt h2 {
         text-align: left;
     }
+
+
 
     /* ---------- TIMELINE ---------- */
 
