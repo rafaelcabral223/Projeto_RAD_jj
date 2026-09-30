@@ -168,6 +168,111 @@
         </div>
     </section>
 
+    <!-- POLOS -->
+    <section class="polos-container" id="polos">
+        <div class="polos-cabecalho">
+            <div class="polos-titulo">
+                <h2>Nossos polos</h2>
+            </div>
+
+            <!-- Seletor (mobile) -->
+            <div class="polos-select">
+                <label for="polo-select">Escolha seu polo · 15 polos</label>
+                <div class="polos-select-campo">
+                    <select id="polo-select"></select>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+            </div>            
+        </div>
+
+
+
+        <!-- Detalhe do polo selecionado -->
+        <div class="polo-detalhe">
+            <div class="polo-local">
+                <div class="polo-mapa">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                    <span>[MAPA DO POLO]</span>
+                </div>
+
+                <div class="polo-info">
+                    <span class="polo-numero" id="polo-numero">Polo 01</span>
+                    <h3 id="polo-nome">[Nome do polo]</h3>
+                    <p><i class="fa-solid fa-location-dot"></i> <span id="polo-endereco">[Endereço]</span></p>
+                    <p><i class="fa-solid fa-phone"></i> <span id="polo-telefone">[Telefone]</span></p>
+                    <a id="polo-link" class="btn btn-primary polo-btn" href="#" target="_blank" rel="noopener">
+                        Como chegar <i class="fa-solid fa-arrow-right-long"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="polo-horarios">
+                <div class="polo-horarios-topo">
+                    <h4>Horários neste polo</h4>
+                    <span id="polo-qtd">3 de 3 turmas</span>
+                </div>
+
+                <!-- Ordem das turmas: iniciante, juvenil, adolescente, adulto (igual ao JS) -->
+                <div class="polo-turmas">
+                    <div class="polo-turma">
+                        <div class="polo-turma-topo">
+                            <span class="polo-idade">5 a 8 anos</span>
+                            <h4>Turma iniciante</h4>
+                        </div>
+                        <div class="polo-disponivel">
+                            <p><i class="fa-regular fa-calendar"></i> <span class="polo-dias"></span></p>
+                            <p><i class="fa-regular fa-clock"></i> <span class="polo-horario"></span></p>
+                        </div>
+                        <p class="polo-aviso">Não oferecida neste polo</p>
+                    </div>
+
+                    <div class="polo-turma">
+                        <div class="polo-turma-topo">
+                            <span class="polo-idade">9 a 12 anos</span>
+                            <h4>Turma juvenil</h4>
+                        </div>
+                        <div class="polo-disponivel">
+                            <p><i class="fa-regular fa-calendar"></i> <span class="polo-dias"></span></p>
+                            <p><i class="fa-regular fa-clock"></i> <span class="polo-horario"></span></p>
+                        </div>
+                        <p class="polo-aviso">Não oferecida neste polo</p>
+                    </div>
+
+                    <div class="polo-turma">
+                        <div class="polo-turma-topo">
+                            <span class="polo-idade">13 a 17 anos</span>
+                            <h4>Turma adolescente</h4>
+                        </div>
+                        <div class="polo-disponivel">
+                            <p><i class="fa-regular fa-calendar"></i> <span class="polo-dias"></span></p>
+                            <p><i class="fa-regular fa-clock"></i> <span class="polo-horario"></span></p>
+                        </div>
+                        <p class="polo-aviso">Não oferecida neste polo</p>
+                    </div>
+
+                    <div class="polo-cta">
+                        <!-- <i class="fa-solid fa-hand-fist"></i> -->
+                        <h4>Quer começar?</h4>
+                        <p>Faça sua inscrição e venha treinar com a gente.</p>
+                        <a href="#contato">Quero me inscrever <i class="fa-solid fa-arrow-right-long"></i></a>
+                    </div>           
+
+                    <!-- <div class="polo-turma">
+                        <div class="polo-turma-topo">
+                            <span class="polo-idade">18+ anos</span>
+                            <h4>Turma adulto</h4>
+                        </div>
+                        <div class="polo-disponivel">
+                            <p><i class="fa-regular fa-calendar"></i> <span class="polo-dias"></span></p>
+                            <p><i class="fa-regular fa-clock"></i> <span class="polo-horario"></span></p>
+                        </div>
+                        <p class="polo-aviso">Não oferecida neste polo</p>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
     <script src="js/script.js"></script>
 </body>
 </html>

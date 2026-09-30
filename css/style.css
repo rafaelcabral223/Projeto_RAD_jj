@@ -533,6 +533,333 @@ body {
     justify-content: center;
 }
 
+/* ---------- POLOS ---------- */
+
+.polos-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 6rem var(--container-padding);
+    color: var(--color-muted);
+    background:
+        radial-gradient(ellipse 460px 560px at 100% 0%, rgba(28, 48, 96, 0.45) 0%, rgba(7, 11, 22, 0) 100%),
+        #070B16;
+}
+
+.polos-cabecalho {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.polos-titulo {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.polos-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: var(--text-label);
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+}
+
+.polos-tag::before {
+    content: "";
+    width: 28px;
+    height: 2px;
+    background-color: var(--color-gold);
+}
+
+.polos-cabecalho h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-h2);
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--color-light);
+}
+
+.polos-cabecalho p {
+    line-height: 1.6;
+}
+
+/* Seletor (mobile) */
+.polos-select {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.polos-select label {
+    font-size: var(--text-label);
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.polos-select-campo {
+    position: relative;
+}
+
+.polos-select select {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    padding: 1rem 3rem 1rem 1rem;
+
+    font-family: var(--font-body);
+    font-size: var(--text-body-lg);
+    font-weight: 600;
+    color: var(--color-light);
+
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-gold);
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.polos-select-campo i {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    color: var(--color-gold);
+    pointer-events: none;
+}
+
+/* Botões (só aparecem no desktop) */
+#polos-botoes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.75rem;
+}
+
+/* Detalhe do polo */
+.polo-detalhe {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-card-bg);
+    border: var(--border-muted);
+    border-radius: 3px;
+    overflow: hidden;
+
+}
+
+.polo-local {
+    display: flex;
+    flex-direction: column;
+}
+
+.polo-mapa {
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+
+    font-size: var(--text-label);
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: rgba(255, 255, 255, 0.4);
+
+    background-color: rgba(255, 255, 255, 0.03);
+    border-bottom: var(--border-muted);
+}
+
+.polo-mapa i {
+    font-size: 1.3rem;
+    color: var(--color-gold);
+}
+
+.polo-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 1.5rem 1.25rem;
+}
+
+.polo-numero {
+    font-size: var(--text-label);
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+}
+
+.polo-info h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-h3-pillar);
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--color-light);
+}
+
+.polo-info p {
+    display: flex;
+    gap: 0.6rem;
+    line-height: 1.5;
+}
+
+.polo-info p i {
+    margin-top: 0.2rem;
+    color: var(--color-gold);
+}
+
+.polo-btn {
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.9rem 1rem;
+    font-size: var(--text-body-sm);
+}
+
+/* Horários */
+.polo-horarios {
+    padding: 0 1.25rem 0.5rem;
+}
+
+.polo-horarios-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 1rem 0;
+    border-bottom: var(--border-muted-light);
+}
+
+.polo-horarios-topo h4 {
+    font-size: var(--text-label);
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-light);
+}
+
+.polo-horarios-topo span {
+    font-size: var(--text-body-xs);
+}
+
+.polo-turmas {
+    display: flex;
+    flex-direction: column;
+}
+
+.polo-turma {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 1rem 0;
+    border-bottom: var(--border-muted);
+}
+
+.polo-turma:last-child {
+    border-bottom: none;
+}
+
+.polo-turma-topo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.polo-idade {
+    padding: 0.2rem 0.5rem;
+    font-size: var(--text-label);
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-dark);
+    background-color: var(--color-gold);
+}
+
+.polo-turma h4 {
+    font-size: var(--text-body-md);
+    font-weight: 600;
+    color: var(--color-light);
+}
+
+.polo-disponivel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.2rem;
+}
+
+.polo-disponivel p {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: var(--text-body-sm);
+    color: var(--color-light);
+}
+
+.polo-disponivel i {
+    color: var(--color-gold);
+}
+
+.polo-aviso {
+    display: none;
+    font-size: var(--text-body-sm);
+    color: #6B7285;
+}
+
+/* Turma não oferecida no polo */
+.polo-turma.indisponivel .polo-idade {
+    color: #6B7285;
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.polo-turma.indisponivel h4 {
+    color: #6B7285;
+}
+
+.polo-turma.indisponivel .polo-disponivel {
+    display: none;
+}
+
+.polo-turma.indisponivel .polo-aviso {
+    display: block;
+}
+
+/* POLO CHAMADA */
+
+.polo-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin: 0.5rem 0 1rem;
+    padding: 1.5rem;
+    border: 1px solid var(--color-gold);
+    border-radius: 3px;
+}
+
+.polo-cta i {
+    color: var(--color-gold);
+}
+
+.polo-cta h4 {
+    font-family: var(--font-display);
+    font-size: var(--text-h3-pillar);
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--color-light);
+}
+
+.polo-cta a {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--color-gold);
+}
+
 /* =========================================================
    TABLET (a partir de 756px)
    ========================================================= */
@@ -698,6 +1025,125 @@ body {
 
 .modalidade-box{
     max-width: 400px;
+}
+
+    /* ---------- POLOS ---------- */
+
+    .polos-cabecalho {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 3rem;
+    }
+
+    .polos-cabecalho p {
+        max-width: 420px;
+    }
+
+
+    .polos-select {
+        max-width: 420px;
+    }    
+
+    /* Mapa à esquerda, horários à direita */
+    .polo-detalhe {
+        display: grid;
+        grid-template-columns: 5fr 7fr;
+        gap: 2rem;
+        background-color: transparent;
+        border: none;
+        overflow: visible;
+    }
+
+    .polo-local {
+        position: relative;
+        min-height: 520px;
+        background-color: var(--color-card-bg);
+        border: var(--border-muted);
+        border-radius: 3px;
+        overflow: hidden;
+        margin-top: 2rem;
+    }
+
+    .polo-mapa {
+        position: absolute;
+        inset: 0;
+        height: auto;
+        align-items: flex-start;
+        padding-top: 6rem;
+        border-bottom: none;
+    }
+
+    .polo-info {
+        position: absolute;
+        left: 1.25rem;
+        right: 1.25rem;
+        bottom: 1.25rem;
+        padding: 1.5rem;
+        background-color: var(--color-dark);
+        border: var(--border-muted-light);
+        border-radius: 3px;
+    }
+
+    .polo-horarios {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0;
+    }
+
+    .polo-horarios-topo {
+        padding: 0;
+        border-bottom: none;
+    }
+
+    .polo-turmas {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        flex-grow: 1;
+    }
+
+    .polo-turma,
+    .polo-turma:last-child {
+        gap: 1rem;
+        padding: 1.5rem;
+        background-color: var(--color-card-bg);
+        border: var(--border-muted);
+        border-radius: 3px;
+    }
+
+    .polo-turma-topo {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .polo-turma h4 {
+        font-family: var(--font-display);
+        font-size: var(--text-h3-pillar);
+        font-weight: 800;
+        text-transform: uppercase;
+    }
+
+    .polo-disponivel,
+    .polo-aviso {
+        margin-top: auto;
+        padding-top: 1rem;
+        border-top: var(--border-muted-light);
+    }
+
+    .polo-disponivel {
+        flex-direction: column;
+    }
+
+    .polo-turma.indisponivel {
+        background-color: transparent;
+        border: 1px dashed rgba(176, 176, 184, 0.25);
+    }
+
+    .polo-cta {
+    margin: 0;
 }
 
 }
