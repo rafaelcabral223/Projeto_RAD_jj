@@ -80,7 +80,7 @@ contadores.forEach((contador) => observador.observe(contador));
 // Use null quando o polo NÃO oferece aquela turma.
 const polos = [
     {
-        nome: "[Nome do polo 01]",
+        nome: "Pavão-Pavãozinho e Cantagalo",
         endereco: "[Rua, número — Bairro, Cidade/UF]",
         telefone: "[(21) 00000-0000]",
         mapa: "https://maps.google.com/?q=[endereço do polo]",
@@ -116,8 +116,8 @@ const polos = [
         ]
     },
     {
-        nome: "[Nome do polo 04]",
-        endereco: "[Rua, número — Bairro, Cidade/UF]",
+        nome: "Turano",
+        endereco: "R. Aureliano Portugal, 220 - Rio Comprido, Rio de Janeiro/RJ",
         telefone: "[(21) 00000-0000]",
         mapa: "https://maps.google.com/?q=[endereço do polo]",
         turmas: [
@@ -316,3 +316,5 @@ selectPolo.addEventListener("change", () => {
 
 // Começa mostrando o primeiro polo
 mostrarPolo(0);
+
+// IMAGENS
