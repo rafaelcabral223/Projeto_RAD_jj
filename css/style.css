@@ -637,6 +637,116 @@ body {
     pointer-events: none;
 }
 
+/* Busca e cards dos polos (desktop) */
+.polos-busca {
+    display: none;
+}
+
+.polos-busca > label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #6B7285;
+    font-size: var(--text-label);
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.polos-busca-campo {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.polos-busca-campo i {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+    color: var(--color-dark);
+}
+
+.polos-busca-campo input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 2.8rem;
+    color: var(--color-dark);
+    background-color: #FFFFFF;
+    border: var(--border-dark-muted);
+    border-radius: 3px;
+    outline: none;
+}
+
+.polos-busca-campo input:focus {
+    border-color: var(--color-gold);
+}
+
+#polos-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+}
+
+.polo-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 170px;
+    padding: 1.25rem;
+    color: var(--color-dark);
+    background-color: #FFFFFF;
+    border: 1px solid rgba(10, 14, 26, 0.08);
+    border-radius: 3px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.polo-card:hover,
+.polo-card:focus,
+.polo-card.selecionado {
+    border-color: var(--color-gold);
+    outline: none;
+    transform: translateY(-2px);
+}
+
+.polo-card-numero {
+    color: #6B7285;
+    font-size: var(--text-label);
+    font-weight: 600;
+    letter-spacing: 0.18em;
+}
+
+.polo-card h3 {
+    margin: 1rem 0 0.5rem;
+    font-family: var(--font-display);
+    font-size: var(--text-h3-pillar);
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.polo-card p {
+    display: flex;
+    gap: 0.4rem;
+    color: var(--color-dark-text);
+    font-size: var(--text-body-sm);
+    line-height: 1.4;
+}
+
+.polo-card p i {
+    color: var(--color-dark);
+}
+
+.polo-card-link {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 1rem;
+    color: var(--color-dark);
+    font-size: var(--text-body-sm);
+    font-weight: 600;
+}
+
+.polo-card-link i {
+    color: var(--color-dark);
+}
+
 /* Detalhe do polo */
 .polo-detalhe {
     display: flex;
@@ -823,8 +933,8 @@ body {
     display: none;
 }
 
-.polo-turma.indisponivel .polo-aviso {
-    display: block;
+.polo-turma.indisponivel {
+    display: none;
 }
 
 /* Card de inscrição */
@@ -1106,7 +1216,14 @@ body {
     }
 
     .polos-select {
-        max-width: 420px;
+        display: none;
+    }
+
+    .polos-busca {
+        display: block;
+        width: 100%;
+        max-width: none;
+        margin: 0;
     }
 
     /* Mapa à esquerda, horários à direita */
@@ -1158,24 +1275,23 @@ body {
     }
 
     .polo-turmas {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
         flex-grow: 1;
     }
 
     .polo-turma {
+        display: grid;
+        grid-template-columns: 130px minmax(140px, 1fr) 130px 130px;
+        align-items: center;
         gap: 1rem;
-        padding: 1.5rem;
-        background-color: #FFFFFF;
-        border: 1px solid rgba(10, 14, 26, 0.08);
-        border-radius: 3px;
+        padding: 1rem 0;
+        border-bottom: var(--border-dark-muted);
     }
 
     .polo-turma-topo {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
+        display: contents;
     }
 
     .polo-turma h4 {
@@ -1185,24 +1301,18 @@ body {
         text-transform: uppercase;
     }
 
-    .polo-disponivel,
-    .polo-aviso {
-        margin-top: auto;
-        padding-top: 1rem;
-        border-top: var(--border-dark-muted);
-    }
-
     .polo-disponivel {
-        flex-direction: column;
+        display: contents;
     }
 
-    .polo-turma.indisponivel {
-        background-color: transparent;
-        border: 1px dashed rgba(10, 14, 26, 0.2);
+    .polo-disponivel p {
+        gap: 0.4rem;
+        margin: 0;
+        white-space: nowrap;
     }
 
     .polo-cta {
-        margin: 0;
+        margin: 1rem 0 0;
     }
 
     /* GALERIA */
