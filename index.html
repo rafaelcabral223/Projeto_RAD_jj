@@ -23,10 +23,10 @@
 
             <div id="nav-mobile" class="invisivel">
                 <a href="#">Início</a>
-                <a href="#">Nossa História</a>
-                <a href="#">Modalidades</a>
-                <a href="#">Apoie</a>
-                <a id="nav-btn-ctt" href="#">Contato</a>
+                <a href="#historia">Nossa História</a>
+                <a href="#">Nossos Polos</a>
+                <a href="#">Contato</a>
+                <a id="nav-btn-ctt" href="#">APOIE</a>
             </div>
         </nav>
 
@@ -69,7 +69,7 @@
         </section>
 
         <!-- HISTÓRIA -->
-        <section class="historia-container">
+        <section class="historia-container" id="historia">
             <div class="historia-img">
                 <img src="assets/images/img_historia.webp" alt="">
             </div>
@@ -146,8 +146,153 @@
                     officia quaerat corrupti delectus provident placeat.</p>
             </div>
         </section>
-
     </main>
+
+    <!-- <section class="modalidades-container">
+        <h2>MODALIDADES</h2>
+        <div id="modalidades-line">
+            <div class="modalidade-box">
+                <img src="assets/images/img_hero.webp" alt="">
+                <div class="modalidade-descricao">
+                    <h3>TURMA 01</h3>
+                    <p>[Breve descrição da turma: foco, nível e o que o aluno desenvolve.]</p>
+                    <div class="modalidade-info">
+                        <p><i class="fa-regular fa-calendar"></i> [Seg · Qua · Sex]</p>
+                        <p><i class="fa-regular fa-clock"></i> [17h às 18h]</p>
+                    </div>
+                    <div class="modalidade-btn">
+                        <a href="#">Agendar aula experimental <i class="fa-solid fa-arrow-right-long"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- POLOS -->
+    <section class="polos-container" id="polos">
+        <div class="polos-cabecalho">
+            <div class="polos-titulo">
+                <h2>Nossos polos</h2>
+            </div>
+
+            <!-- Seletor (mobile) -->
+            <div class="polos-select">
+                <label for="polo-select">Escolha seu polo · 15 polos</label>
+                <div class="polos-select-campo">
+                    <select id="polo-select"></select>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+            </div>            
+        </div>
+
+
+
+        <!-- Detalhe do polo selecionado -->
+        <div class="polo-detalhe">
+            <div class="polo-local">
+                <div class="polo-mapa">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                    <span>[MAPA DO POLO]</span>
+                </div>
+
+                <div class="polo-info">
+                    <span class="polo-numero" id="polo-numero">Polo 01</span>
+                    <h3 id="polo-nome">[Nome do polo]</h3>
+                    <p><i class="fa-solid fa-location-dot"></i> <span id="polo-endereco">[Endereço]</span></p>
+                    <p><i class="fa-solid fa-phone"></i> <span id="polo-telefone">[Telefone]</span></p>
+                    <a id="polo-link" class="btn btn-primary polo-btn" href="#" target="_blank" rel="noopener">
+                        Como chegar <i class="fa-solid fa-arrow-right-long"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="polo-horarios">
+                <div class="polo-horarios-topo">
+                    <h4>Horários neste polo</h4>
+                    <span id="polo-qtd">3 de 3 turmas</span>
+                </div>
+
+                <!-- Ordem das turmas: iniciante, juvenil, adolescente, adulto (igual ao JS) -->
+                <div class="polo-turmas">
+                    <div class="polo-turma">
+                        <div class="polo-turma-topo">
+                            <span class="polo-idade">5 a 11 anos</span>
+                            <h4>Turma Infantil</h4>
+                        </div>
+                        <div class="polo-disponivel">
+                            <p><i class="fa-regular fa-calendar"></i> <span class="polo-dias"></span></p>
+                            <p><i class="fa-regular fa-clock"></i> <span class="polo-horario"></span></p>
+                        </div>
+                        <p class="polo-aviso">Não oferecida neste polo</p>
+                    </div>
+
+                    <div class="polo-turma">
+                        <div class="polo-turma-topo">
+                            <span class="polo-idade">12 a 17 anos</span>
+                            <h4>Turma Jovem</h4>
+                        </div>
+                        <div class="polo-disponivel">
+                            <p><i class="fa-regular fa-calendar"></i> <span class="polo-dias"></span></p>
+                            <p><i class="fa-regular fa-clock"></i> <span class="polo-horario"></span></p>
+                        </div>
+                        <p class="polo-aviso">Não oferecida neste polo</p>
+                    </div>
+
+                    <div class="polo-turma">
+                        <div class="polo-turma-topo">
+                            <span class="polo-idade">A partir de 18 anos</span>
+                            <h4>Turma Adultos</h4>
+                        </div>
+                        <div class="polo-disponivel">
+                            <p><i class="fa-regular fa-calendar"></i> <span class="polo-dias"></span></p>
+                            <p><i class="fa-regular fa-clock"></i> <span class="polo-horario"></span></p>
+                        </div>
+                        <p class="polo-aviso">Não oferecida neste polo</p>
+                    </div>
+
+                    <div class="polo-cta">
+                        <!-- <i class="fa-solid fa-hand-fist"></i> -->
+                        <h4>Quer começar?</h4>
+                        <p>Faça sua inscrição e venha treinar com a gente.</p>
+                        <a href="#contato">Quero me inscrever <i class="fa-solid fa-arrow-right-long"></i></a>
+                    </div>           
+
+                    <!-- <div class="polo-turma">
+                        <div class="polo-turma-topo">
+                            <span class="polo-idade">18+ anos</span>
+                            <h4>Turma adulto</h4>
+                        </div>
+                        <div class="polo-disponivel">
+                            <p><i class="fa-regular fa-calendar"></i> <span class="polo-dias"></span></p>
+                            <p><i class="fa-regular fa-clock"></i> <span class="polo-horario"></span></p>
+                        </div>
+                        <p class="polo-aviso">Não oferecida neste polo</p>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERIA -->
+    <section class="galeria-container" id="galeria">
+        <h2>Galeria</h2>
+
+        <div class="galeria-fotos">
+            <img src="assets/images/img_hero.webp" alt="Descrição da foto 1" loading="lazy">
+            <img src="assets/images/img_hero.webp" alt="Descrição da foto 2" loading="lazy">
+            <img src="assets/images/img_hero.webp" alt="Descrição da foto 3" loading="lazy">
+            <img src="assets/images/img_hero.webp" alt="Descrição da foto 4" loading="lazy">
+            <img src="assets/images/img_hero.webp" alt="Descrição da foto 5" loading="lazy">
+            <img src="assets/images/img_hero.webp" alt="Descrição da foto 6" loading="lazy">
+        </div>
+
+        <div class="btn-galeria">
+            <a href="https://instagram.com/radjiujitsuoficial" class="galeria-link" target="_blank" rel="noopener">
+                Ver mais no Instagram <!--<i class="fa-solid fa-arrow-right-long"></i> -->
+            </a>
+        </div>
+
+    </section>
 
     <script src="js/script.js"></script>
 </body>

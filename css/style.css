@@ -10,7 +10,7 @@
     --color-light: #F5F5F5;
     --color-gold: #F2C230;
 
-    --color-muted: #B0B0B8;
+    --color-muted: #c0c0c8;
     --color-dark-text: #3a3a3a;
     --color-card-bg: #1a2030;
 
@@ -73,6 +73,10 @@ body {
 /* =========================================================
    MOBILE (mobile first)
    ========================================================= */
+
+#main{
+    background-color: var(--color-light);
+}
 
 /* ---------- MENU ---------- */
 
@@ -156,14 +160,14 @@ body {
     color: var(--color-dark) !important;
     background-color: var(--color-gold);
     border: 2px solid var(--color-gold);
-    border-radius: 2px;
+    border-radius: 3px;
     transition: 0.2 ease-in;
 }
 
 #nav-btn-ctt:hover {
     background-color: transparent;
     border: 2px solid var(--color-gold);
-    color: var(--color-gold) !important;
+    color: var(--color-light) !important;
 }
 
 /* ---------- HERO ---------- */
@@ -217,7 +221,7 @@ body {
 
 #hero-conteudo p {
     font-size: var(--text-logo);
-    color: #c0c0c8;
+    color: var(--color-muted);
 }
 
 #hero-conteudo span {
@@ -235,7 +239,7 @@ body {
 
 .btn {
     padding: 0.9rem 2.5rem;
-    border-radius: 2px;
+    border-radius: 3px;
     text-decoration: none;
     text-transform: uppercase;
     font-size: var(--text-body-lg);
@@ -309,6 +313,7 @@ body {
     align-items: center;
     gap: 2rem;
     padding: 6rem var(--container-padding) 4rem;
+    background-color: var(--color-light);
 }
 
 .historia-img{
@@ -320,7 +325,7 @@ body {
 .historia-img img {
     width: 100%;
     object-fit: cover;
-    border-radius: 2px;
+    border-radius: 3px;
     
     max-width: 550px;
 }
@@ -346,6 +351,7 @@ body {
 
 .historia-timeline {
     padding: 0 var(--container-padding) 4rem;
+    background-color: var(--color-light);
 }
 
 .timeline {
@@ -444,6 +450,481 @@ body {
     color: var(--color-gold);
 }
 
+/* ---------- MODALIDADES ---------- */
+
+.modalidades-container{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    align-items: center;
+    gap: 2rem;
+    padding: 6rem var(--container-padding) 4rem;
+}
+
+.modalidades-container h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-h2);
+    font-weight: 800;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--color-dark);
+}
+
+.modalidade-box{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--color-dark);
+
+    border-radius: 3px;
+}
+
+.modalidade-box img{
+    width: 100%;
+    border-radius: 4px 4px 0 0;
+}
+
+.modalidade-descricao{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1.2rem;
+}
+
+.modalidade-descricao h3{
+    font-family: var(--font-display);
+    font-size: var(--text-h3-pillar);
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--color-light);
+}
+
+.modalidade-descricao p{
+    color: var(--color-muted);
+}
+
+.modalidade-info{
+    border-top: var(--border-muted-light);
+    padding-top: 1.2rem ;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.modalidade-info p{
+    color: var(--color-light);
+}
+
+.modalidade-info p i{
+    color: var(--color-gold);
+}
+
+/* .modalidade-btn{
+    display: flex;
+    justify-content: space-between;    
+} */
+
+.modalidade-btn a{
+    color: #F2C230;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+#modalidades-line{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ---------- POLOS ---------- */
+
+.polos-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 6rem var(--container-padding);
+    background-color: var(--color-light);
+}
+
+.polos-cabecalho,
+.polos-titulo {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.polos-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: var(--text-label);
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--color-dark);
+}
+
+.polos-tag::before {
+    content: "";
+    width: 28px;
+    height: 2px;
+    background-color: var(--color-gold);
+}
+
+.polos-cabecalho h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-h2);
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--color-dark);
+}
+
+.polos-cabecalho p {
+    line-height: 1.6;
+    color: var(--color-dark-text);
+}
+
+/* Seletor */
+.polos-select {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.polos-select label {
+    font-size: var(--text-label);
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #6B7285;
+}
+
+.polos-select-campo {
+    position: relative;
+}
+
+.polos-select select {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    padding: 1rem 3rem 1rem 1rem;
+
+    font-family: var(--font-body);
+    font-size: var(--text-body-lg);
+    font-weight: 600;
+    color: var(--color-dark);
+
+    background-color: #FFFFFF;
+    border: var(--border-dark-muted);
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.polos-select select:focus {
+    outline: none;
+    border-color: var(--color-gold);
+}
+
+.polos-select-campo i {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    color: var(--color-dark);
+    pointer-events: none;
+}
+
+/* Detalhe do polo */
+.polo-detalhe {
+    display: flex;
+    flex-direction: column;
+    color: var(--color-dark-text);
+    background-color: #FFFFFF;
+    border: 1px solid rgba(10, 14, 26, 0.08);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.polo-local {
+    display: flex;
+    flex-direction: column;
+}
+
+.polo-mapa {
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+
+    font-size: var(--text-label);
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: #6B7285;
+
+    background-color: #ECEDF0;
+}
+
+.polo-mapa i {
+    font-size: 1.3rem;
+    color: var(--color-dark);
+}
+
+.polo-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 1.5rem 1.25rem;
+}
+
+.polo-numero {
+    font-size: var(--text-label);
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #6B7285;
+}
+
+.polo-info h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-h3-pillar);
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--color-dark);
+}
+
+.polo-info p {
+    display: flex;
+    gap: 0.6rem;
+    line-height: 1.5;
+}
+
+.polo-info p i {
+    margin-top: 0.2rem;
+    color: var(--color-dark);
+}
+
+.polo-btn {
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.9rem 1rem;
+    font-size: var(--text-body-sm);
+}
+
+/* No fundo claro, o hover do .btn-primary deixaria o texto branco e invisível */
+.polo-btn:hover {
+    color: var(--color-dark);
+}
+
+/* Horários */
+.polo-horarios {
+    padding: 0 1.25rem 0.5rem;
+}
+
+.polo-horarios-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 1rem 0;
+    border-top: var(--border-dark-muted);
+    border-bottom: var(--border-dark-muted);
+}
+
+.polo-horarios-topo h4 {
+    font-size: var(--text-label);
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-dark);
+}
+
+.polo-horarios-topo span {
+    font-size: var(--text-body-xs);
+    color: #6B7285;
+}
+
+.polo-turmas {
+    display: flex;
+    flex-direction: column;
+}
+
+.polo-turma {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    padding: 1.5rem 0;
+    border-bottom: var(--border-dark-muted);
+    
+}
+
+.polo-turma-topo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.polo-idade {
+    padding: 0.2rem 0.5rem;
+    font-size: var(--text-label);
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-dark);
+    background-color: var(--color-gold);
+}
+
+.polo-turma h4 {
+    font-size: var(--text-body-lg);
+    font-weight: 600;
+    color: var(--color-dark);
+}
+
+.polo-disponivel {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 0.6rem 1.2rem;
+}
+
+.polo-disponivel p {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: var(--text-body-sm);
+    color: var(--color-dark-text);
+}
+
+.polo-disponivel i {
+    color: var(--color-dark);
+}
+
+.polo-aviso {
+    display: none;
+    font-size: var(--text-body-sm);
+    color: #6B7285;
+}
+
+/* Turma não oferecida no polo */
+.polo-turma.indisponivel .polo-idade {
+    color: #6B7285;
+    background-color: rgba(10, 14, 26, 0.06);
+}
+
+.polo-turma.indisponivel h4 {
+    color: #6B7285;
+}
+
+.polo-turma.indisponivel .polo-disponivel {
+    display: none;
+}
+
+.polo-turma.indisponivel .polo-aviso {
+    display: block;
+}
+
+/* Card de inscrição */
+.polo-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin: 1rem 0;
+    padding: 1.5rem;
+    color: var(--color-dark-text);
+    background-color: rgba(242, 194, 48, 0.12);
+    border: 1px solid var(--color-gold);
+    border-radius: 3px;
+}
+
+.polo-cta i {
+    color: var(--color-dark);
+}
+
+.polo-cta h4 {
+    font-family: var(--font-display);
+    font-size: var(--text-h3-pillar);
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--color-dark);
+}
+
+.polo-cta a {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--color-dark);
+}
+
+/* GALERIA */
+
+.galeria-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 6rem var(--container-padding);
+    /* align-items: center; */
+
+    background:
+        radial-gradient(ellipse 420px 520px at 30% 0%, rgba(28, 48, 96, 0.55) 0%, rgba(14, 24, 52, 0.25) 45%, rgba(7, 11, 22, 0) 100%),
+        radial-gradient(ellipse 360px 420px at 100% 100%, rgba(20, 34, 72, 0.35) 0%, rgba(7, 11, 22, 0) 100%),
+        #070B16;
+}
+
+.galeria-container h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-h2);
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--color-light);
+}
+
+.galeria-fotos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+}
+
+.galeria-fotos img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 3px;
+}
+
+.galeria-link{
+    background-color: var(--color-gold);
+    border: 2px solid var(--color-gold);
+    color: var(--color-dark);
+    transition: 0.3s ease-in-out;
+    
+    padding: 0.9rem 2.5rem;
+    border-radius: 3px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: var(--text-body-lg);
+    font-weight: 600;
+    
+    max-width: 300px;
+}
+
+.galeria-link:hover{
+    background: none;
+    color: var(--color-light);
+}
+
+.btn-galeria{
+    display: flex;
+    justify-content: center;
+}
+
 /* =========================================================
    TABLET (a partir de 756px)
    ========================================================= */
@@ -505,6 +986,15 @@ body {
         margin: 0;
         padding: 0.7rem 1.5rem !important;
     }
+
+    #nav-mobile a:not(#nav-btn-ctt) {
+        background: linear-gradient(var(--color-light), var(--color-light)) left bottom / 0% 2px no-repeat;
+        transition: background-size 0.3s ease;
+    }
+
+    #nav-mobile a:not(#nav-btn-ctt):hover {
+        background-size: 100% 2px;
+    }    
 
     /* ---------- HERO ---------- */
 
@@ -591,4 +1081,134 @@ body {
     .timeline-content h3 {
         margin: 0 0 0.5rem;
     }
+
+/* ---------- MODALIDADES ---------- */
+
+.modalidades-container h2{
+    text-align: left;
+}
+
+.modalidade-box{
+    max-width: 400px;
+}
+
+     /* ---------- POLOS ---------- */
+
+    .polos-cabecalho {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 3rem;
+    }
+
+    .polos-cabecalho p {
+        max-width: 420px;
+    }
+
+    .polos-select {
+        max-width: 420px;
+    }
+
+    /* Mapa à esquerda, horários à direita */
+    .polo-detalhe {
+        display: grid;
+        grid-template-columns: 5fr 7fr;
+        gap: 2rem;
+        background-color: transparent;
+        border: none;
+        overflow: visible;
+    }
+
+    .polo-local {
+        position: relative;
+        min-height: 520px;
+        border-radius: 3px;
+        overflow: hidden;
+    }
+
+    .polo-mapa {
+        position: absolute;
+        inset: 0;
+        height: auto;
+        align-items: flex-start;
+        padding-top: 6rem;
+    }
+
+    .polo-info {
+        position: absolute;
+        left: 1.25rem;
+        right: 1.25rem;
+        bottom: 1.25rem;
+        padding: 1.5rem;
+        background-color: #FFFFFF;
+        border-radius: 3px;
+        box-shadow: 0 8px 24px rgba(10, 14, 26, 0.08);
+    }
+
+    .polo-horarios {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0;
+    }
+
+    .polo-horarios-topo {
+        padding: 0;
+        border: none;
+    }
+
+    .polo-turmas {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        flex-grow: 1;
+    }
+
+    .polo-turma {
+        gap: 1rem;
+        padding: 1.5rem;
+        background-color: #FFFFFF;
+        border: 1px solid rgba(10, 14, 26, 0.08);
+        border-radius: 3px;
+    }
+
+    .polo-turma-topo {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .polo-turma h4 {
+        font-family: var(--font-display);
+        font-size: var(--text-h3-pillar);
+        font-weight: 800;
+        text-transform: uppercase;
+    }
+
+    .polo-disponivel,
+    .polo-aviso {
+        margin-top: auto;
+        padding-top: 1rem;
+        border-top: var(--border-dark-muted);
+    }
+
+    .polo-disponivel {
+        flex-direction: column;
+    }
+
+    .polo-turma.indisponivel {
+        background-color: transparent;
+        border: 1px dashed rgba(10, 14, 26, 0.2);
+    }
+
+    .polo-cta {
+        margin: 0;
+    }
+
+    /* GALERIA */
+
+    .galeria-fotos{
+        grid-template-columns: repeat(3, 1fr);
+    }
+
 }
