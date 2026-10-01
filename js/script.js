@@ -262,8 +262,9 @@ const polos = [
 ];
 
 const selectPolo = document.getElementById("polo-select");
-const botoesPolo = document.getElementById("polos-botoes");
 const cardsTurma = document.querySelectorAll(".polo-turma");
+const buscaPolo = document.getElementById("polo-busca");
+const cardsPolo = document.getElementById("polos-cards");
 
 // Transforma 0 em "01", 1 em "02"...
 function numeroPolo(indice) {
@@ -296,13 +297,17 @@ function mostrarPolo(indice) {
         }
     });
 
-    document.getElementById("polo-qtd").textContent = disponiveis + " de 3 turmas";
+    document.getElementById("polo-qtd").textContent = disponiveis + " turmas";
 
-    // Mantém o select (mobile) e os botões (desktop) sincronizados
+    // Mantém o select e o card selecionado sincronizados
     selectPolo.value = indice;
+
+    document.querySelectorAll(".polo-card").forEach((card) => {
+        card.classList.toggle("selecionado", Number(card.dataset.indice) === indice);
+    });
 }
 
-// Cria as opções do select e os botões a partir da lista de polos
+// Cria as opções do select mobile.
 polos.forEach((polo, indice) => {
     const opcao = document.createElement("option");
     opcao.value = indice;
@@ -310,11 +315,65 @@ polos.forEach((polo, indice) => {
     selectPolo.appendChild(opcao);
 });
 
+// Mostra os cards da busca desktop.
+function mostrarCardsPolo() {
+    const termo = buscaPolo.value.toLocaleLowerCase("pt-BR").trim();
+
+    const polosFiltrados = polos.filter((polo) => {
+        return (polo.nome + " " + polo.endereco)
+            .toLocaleLowerCase("pt-BR")
+            .includes(termo);
+    });
+
+    cardsPolo.innerHTML = "";
+
+    polosFiltrados.forEach((polo) => {
+        const indice = polos.indexOf(polo);
+        const card = document.createElement("article");
+
+        card.className = "polo-card";
+        card.dataset.indice = indice;
+        card.tabIndex = 0;
+        card.setAttribute("role", "button");
+        card.innerHTML = `
+            <span class="polo-card-numero">POLO ${numeroPolo(indice)}</span>
+            <h3>${polo.nome}</h3>
+            <p><i class="fa-solid fa-location-dot"></i> ${polo.endereco}</p>
+            <span class="polo-card-link">Ver detalhes <i class="fa-solid fa-arrow-right"></i></span>
+        `;
+
+        card.addEventListener("click", () => {
+            mostrarPolo(indice);
+
+            // Leva até o detalhe sem esconder o cabeçalho fixo.
+            const detalhe = document.querySelector(".polo-detalhe");
+            const posicao = detalhe.getBoundingClientRect().top + window.scrollY - 80;
+
+            window.scrollTo({
+                top: posicao,
+                behavior: "smooth"
+            });
+        });
+
+        card.addEventListener("keydown", (evento) => {
+            if (evento.key === "Enter" || evento.key === " ") {
+                evento.preventDefault();
+                card.click();
+            }
+        });
+
+        cardsPolo.appendChild(card);
+    });
+}
+
 selectPolo.addEventListener("change", () => {
     mostrarPolo(Number(selectPolo.value));
 });
 
+buscaPolo.addEventListener("input", mostrarCardsPolo);
+
 // Começa mostrando o primeiro polo
+mostrarCardsPolo();
 mostrarPolo(0);
 
 // IMAGENS
