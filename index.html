@@ -200,8 +200,7 @@
         <div class="polo-detalhe">
             <div class="polo-local">
                 <div class="polo-mapa">
-                    <i class="fa-solid fa-map-location-dot"></i>
-                    <span>[MAPA DO POLO]</span>
+                    <iframe id="polo-mapa-frame" title="Mapa do polo" loading="lazy"></iframe>
                 </div>
 
                 <div class="polo-info">
@@ -286,6 +285,13 @@
                 Ver mais no Instagram <!--<i class="fa-solid fa-arrow-right-long"></i> -->
             </a>
         </div>
+        <!-- Foto ampliada -->
+        <div id="galeria-modal" class="invisivel">
+            <button id="galeria-fechar" aria-label="Fechar foto">
+                <i class="fa-solid fa-x"></i>
+            </button>
+            <img id="galeria-modal-img" src="" alt="">
+        </div>        
     </section>
 
     <!-- APOIE -->
