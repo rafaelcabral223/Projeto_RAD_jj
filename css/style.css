@@ -70,6 +70,33 @@ body {
     display: none !important;
 }
 
+/* ---------- EFEITOS ---------- */
+
+/* Rolagem suave ao clicar nos links do menu */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* desconta a altura do menu fixo */
+}
+
+/* Elementos que aparecem ao rolar (a classe é colocada pelo JS) */
+.revelar {
+    opacity: 0;
+    transform: translateY(-30px); /* começa um pouco acima e desce */
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.revelar.visivel {
+    opacity: 1;
+    transform: none;
+}
+
+/* Quem prefere menos movimento no sistema não recebe as animações */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
 /* =========================================================
    MOBILE (mobile first)
    ========================================================= */
@@ -139,6 +166,7 @@ body {
     padding: 1rem var(--container-padding);
     background-color: var(--color-dark);
     border-top: var(--border-muted-light);
+    gap: 0.75rem;
 }
 
 #nav-mobile a {
@@ -1029,7 +1057,7 @@ body {
     font-size: var(--text-body-lg);
     font-weight: 600;
     
-    max-width: 300px;
+    max-width: 350px;
 }
 
 .galeria-link:hover{
