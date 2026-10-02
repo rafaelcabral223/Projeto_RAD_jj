@@ -11,6 +11,26 @@ btn.addEventListener("click", () => {
     menu.classList.toggle("invisivel");
 });
 
+function fecharMenu() {
+    menu.classList.add("invisivel");
+    btn.classList.add("fa-bars");
+    btn.classList.remove("fa-x");
+}
+
+// Fecha o menu ao clicar em uma opção
+menu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", fecharMenu);
+});
+
+// Fecha o menu ao clicar fora dele
+document.addEventListener("click", (evento) => {
+    const clicouNoMenu = menu.contains(evento.target) || btn.contains(evento.target);
+
+    if (!clicouNoMenu) {
+        fecharMenu();
+    }
+});
+
 // =========================================================
 // BACKGROUND DO NAV AO ROLAR
 // =========================================================
@@ -405,3 +425,46 @@ document.addEventListener("keydown", (evento) => {
         fecharFoto();
     }
 });
+// =========================================================
+// ELEMENTOS APARECENDO AO ROLAR
+// =========================================================
+
+// Lista do que deve aparecer com efeito. Para incluir algo novo,
+// é só acrescentar o seletor aqui.
+const elementosRevelar = document.querySelectorAll(`
+    .counter-box,
+    .historia-img,
+    .historia-txt,
+    .timeline-item,
+    .valores-txt,
+    .polos-cabecalho,
+    .polos-busca,
+    .polo-detalhe,
+    .galeria-container h2,
+    .galeria-fotos,
+    .btn-galeria,
+    .apoie-cabecalho,
+    .apoie-card
+`);
+
+if (!reduzirMovimento) {
+    elementosRevelar.forEach((elemento) => {
+        elemento.classList.add("revelar");
+
+        // Itens lado a lado (cards, timeline) aparecem um depois do outro
+        const irmaos = Array.from(elemento.parentElement.children);
+        const posicao = irmaos.indexOf(elemento);
+        elemento.style.transitionDelay = Math.min(posicao * 0.12, 0.48) + "s";
+    });
+
+    const observadorRevelar = new IntersectionObserver((entradas, obs) => {
+        entradas.forEach((entrada) => {
+            if (entrada.isIntersecting) {
+                entrada.target.classList.add("visivel");
+                obs.unobserve(entrada.target); // anima só uma vez
+            }
+        });
+    }, { threshold: 0.15 });
+
+    elementosRevelar.forEach((elemento) => observadorRevelar.observe(elemento));
+}
