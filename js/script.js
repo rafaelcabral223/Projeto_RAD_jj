@@ -83,7 +83,6 @@ const polos = [
         nome: "Pavão-Pavãozinho e Cantagalo",
         endereco: "[Rua, número — Bairro, Cidade/UF]",
         telefone: "[(21) 00000-0000]",
-        mapa: "https://maps.google.com/?q=[endereço do polo]",
         turmas: [
             { dias: "[Seg · Qua]", horario: "[17h às 18h]" },
             { dias: "[Seg · Qua]", horario: "[18h às 19h]" },
@@ -95,7 +94,6 @@ const polos = [
         nome: "[Nome do polo 02]",
         endereco: "[Rua, número — Bairro, Cidade/UF]",
         telefone: "[(21) 00000-0000]",
-        mapa: "https://maps.google.com/?q=[endereço do polo]",
         turmas: [
             { dias: "[Ter · Qui]", horario: "[16h às 17h]" },
             { dias: "[Ter · Qui]", horario: "[17h às 18h]" },
@@ -107,7 +105,6 @@ const polos = [
         nome: "[Nome do polo 03]",
         endereco: "[Rua, número — Bairro, Cidade/UF]",
         telefone: "[(21) 00000-0000]",
-        mapa: "https://maps.google.com/?q=[endereço do polo]",
         turmas: [
             { dias: "[Sáb]", horario: "[9h às 10h]" },
             { dias: "[Sáb]", horario: "[10h às 11h]" },
@@ -119,7 +116,6 @@ const polos = [
         nome: "Turano",
         endereco: "R. Aureliano Portugal, 220 - Rio Comprido, Rio de Janeiro/RJ",
         telefone: "[(21) 00000-0000]",
-        mapa: "https://maps.google.com/?q=[endereço do polo]",
         turmas: [
             null,
             { dias: "[Seg · Qua]", horario: "[17h às 18h]" },
@@ -131,7 +127,6 @@ const polos = [
         nome: "[Nome do polo 05]",
         endereco: "[Rua, número — Bairro, Cidade/UF]",
         telefone: "[(21) 00000-0000]",
-        mapa: "https://maps.google.com/?q=[endereço do polo]",
         turmas: [
             { dias: "[Seg · Qua]", horario: "[17h às 18h]" },
             { dias: "[Seg · Qua]", horario: "[18h às 19h]" },
@@ -143,7 +138,6 @@ const polos = [
         nome: "[Nome do polo 06]",
         endereco: "[Rua, número — Bairro, Cidade/UF]",
         telefone: "[(21) 00000-0000]",
-        mapa: "https://maps.google.com/?q=[endereço do polo]",
         turmas: [
             { dias: "[Ter · Qui]", horario: "[16h às 17h]" },
             { dias: "[Ter · Qui]", horario: "[17h às 18h]" },
@@ -155,7 +149,6 @@ const polos = [
         nome: "[Nome do polo 07]",
         endereco: "[Rua, número — Bairro, Cidade/UF]",
         telefone: "[(21) 00000-0000]",
-        mapa: "https://maps.google.com/?q=[endereço do polo]",
         turmas: [
             { dias: "[Sáb]", horario: "[9h às 10h]" },
             { dias: "[Sáb]", horario: "[10h às 11h]" },
@@ -167,7 +160,6 @@ const polos = [
         nome: "[Nome do polo 08]",
         endereco: "[Rua, número — Bairro, Cidade/UF]",
         telefone: "[(21) 00000-0000]",
-        mapa: "https://maps.google.com/?q=[endereço do polo]",
         turmas: [
             null,
             { dias: "[Seg · Qua]", horario: "[17h às 18h]" },
@@ -179,7 +171,6 @@ const polos = [
         nome: "[Nome do polo 09]",
         endereco: "[Rua, número — Bairro, Cidade/UF]",
         telefone: "[(21) 00000-0000]",
-        mapa: "https://maps.google.com/?q=[endereço do polo]",
         turmas: [
             { dias: "[Seg · Qua]", horario: "[17h às 18h]" },
             { dias: "[Seg · Qua]", horario: "[18h às 19h]" },
@@ -191,7 +182,6 @@ const polos = [
         nome: "[Nome do polo 10]",
         endereco: "[Rua, número — Bairro, Cidade/UF]",
         telefone: "[(21) 00000-0000]",
-        mapa: "https://maps.google.com/?q=[endereço do polo]",
         turmas: [
             { dias: "[Ter · Qui]", horario: "[16h às 17h]" },
             { dias: "[Ter · Qui]", horario: "[17h às 18h]" },
@@ -203,7 +193,6 @@ const polos = [
         nome: "[Nome do polo 11]",
         endereco: "[Rua, número — Bairro, Cidade/UF]",
         telefone: "[(21) 00000-0000]",
-        mapa: "https://maps.google.com/?q=[endereço do polo]",
         turmas: [
             { dias: "[Sáb]", horario: "[9h às 10h]" },
             { dias: "[Sáb]", horario: "[10h às 11h]" },
@@ -215,7 +204,6 @@ const polos = [
         nome: "[Nome do polo 12]",
         endereco: "[Rua, número — Bairro, Cidade/UF]",
         telefone: "[(21) 00000-0000]",
-        mapa: "https://maps.google.com/?q=[endereço do polo]",
         turmas: [
             { dias: "[Sáb]", horario: "[9h às 10h]" },
             { dias: "[Sáb]", horario: "[10h às 11h]" },
@@ -227,7 +215,6 @@ const polos = [
         nome: "[Nome do polo 12]",
         endereco: "[Rua, número — Bairro, Cidade/UF]",
         telefone: "[(21) 00000-0000]",
-        mapa: "https://maps.google.com/?q=[endereço do polo]",
         turmas: [
             { dias: "[Sáb]", horario: "[9h às 10h]" },
             { dias: "[Sáb]", horario: "[10h às 11h]" },
@@ -239,7 +226,6 @@ const polos = [
         nome: "[Nome do polo 12]",
         endereco: "[Rua, número — Bairro, Cidade/UF]",
         telefone: "[(21) 00000-0000]",
-        mapa: "https://maps.google.com/?q=[endereço do polo]",
         turmas: [
             { dias: "[Sáb]", horario: "[9h às 10h]" },
             { dias: "[Sáb]", horario: "[10h às 11h]" },
@@ -251,7 +237,6 @@ const polos = [
         nome: "[Nome do polo 15]",
         endereco: "[Rua, número — Bairro, Cidade/UF]",
         telefone: "[(21) 00000-0000]",
-        mapa: "https://maps.google.com/?q=[endereço do polo]",
         turmas: [
             { dias: "[Sáb]", horario: "[9h às 10h]" },
             { dias: "[Sáb]", horario: "[10h às 11h]" },
@@ -274,12 +259,14 @@ function numeroPolo(indice) {
 // Mostra na tela os dados do polo escolhido
 function mostrarPolo(indice) {
     const polo = polos[indice];
+    const enderecoUrl = encodeURIComponent(polo.endereco);
 
     document.getElementById("polo-numero").textContent = "Polo " + numeroPolo(indice);
     document.getElementById("polo-nome").textContent = polo.nome;
     document.getElementById("polo-endereco").textContent = polo.endereco;
     document.getElementById("polo-telefone").textContent = polo.telefone;
-    document.getElementById("polo-link").href = polo.mapa;
+    document.getElementById("polo-mapa-frame").src = "https://www.google.com/maps?q=" + enderecoUrl + "&output=embed";
+    document.getElementById("polo-link").href = "https://www.google.com/maps/search/?api=1&query=" + enderecoUrl;
 
     // Preenche os horários de cada turma
     let disponiveis = 0;
@@ -376,4 +363,45 @@ buscaPolo.addEventListener("input", mostrarCardsPolo);
 mostrarCardsPolo();
 mostrarPolo(0);
 
-// IMAGENS
+// =========================================================
+// GALERIA - FOTO AMPLIADA
+// =========================================================
+
+const fotosGaleria = document.querySelectorAll(".galeria-fotos img");
+const modal = document.getElementById("galeria-modal");
+const modalImg = document.getElementById("galeria-modal-img");
+const btnFechar = document.getElementById("galeria-fechar");
+
+function abrirFoto(foto) {
+    modalImg.src = foto.src;
+    modalImg.alt = foto.alt;
+    modal.classList.remove("invisivel");
+    document.body.style.overflow = "hidden"; // trava a rolagem da página
+}
+
+function fecharFoto() {
+    modal.classList.add("invisivel");
+    document.body.style.overflow = ""; // libera a rolagem
+}
+
+// Abre ao clicar em qualquer foto da galeria
+fotosGaleria.forEach((foto) => {
+    foto.addEventListener("click", () => abrirFoto(foto));
+});
+
+// Fecha no X
+btnFechar.addEventListener("click", fecharFoto);
+
+// Fecha ao clicar no fundo escuro (fora da foto)
+modal.addEventListener("click", (evento) => {
+    if (evento.target === modal) {
+        fecharFoto();
+    }
+});
+
+// Fecha com a tecla Esc
+document.addEventListener("keydown", (evento) => {
+    if (evento.key === "Escape") {
+        fecharFoto();
+    }
+});
