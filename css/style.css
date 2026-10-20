@@ -469,13 +469,162 @@ html {
     font-family: var(--font-display);
     font-size: var(--text-h2);
     font-weight: 800;
-    text-align: center;
+    text-align: left;
     text-transform: uppercase;
     color: var(--color-light);
 }
 
 .valores-txt span {
     color: var(--color-gold);
+}
+
+/* Faixas que escurecem (mobile: empilhadas) */
+
+.valores-faixas {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 3.5rem;
+    border-radius: 3px;
+    overflow: hidden;
+    border: var(--border-muted-light);
+}
+
+.valores-faixa {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 2.5rem 1.5rem 1.75rem;
+}
+
+/* Ponta da faixa: tira escura no topo com o nó */
+.valores-faixa::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 22px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.valores-faixa::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 18px;
+    width: 22px;
+    height: 22px;
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+/* Número gigante de fundo: ocupa o topo da faixa */
+.valores-faixa-marca {
+    position: absolute;
+    top: 2.5rem;
+    right: 1rem;
+    font-family: var(--font-display);
+    font-size: clamp(7rem, 14vw, 10rem);
+    font-weight: 800;
+    line-height: 1;
+    color: currentColor;
+    opacity: 0.14;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* texto de apoio centralizados */
+
+.valores-txt p {
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* Citação final da seção */
+.citacao {
+    max-width: 860px;
+    margin: 4rem auto 0;
+    text-align: center;
+}
+
+.citacao::before {
+    content: "";
+    display: block;
+    width: 56px;
+    height: 3px;
+    margin: 0 auto 2.5rem;
+    background-color: var(--color-gold);
+}
+
+.citacao-aspas {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 5rem;
+    line-height: 0.6;
+    color: var(--color-gold);
+    margin-bottom: 1rem;
+}
+
+.citacao blockquote p {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 700;
+    line-height: 1.25;
+    text-transform: uppercase;
+    color: var(--color-light);
+}
+
+.citacao figcaption {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-top: 1.75rem;
+}
+
+.citacao-nome {
+    font-size: var(--text-body-sm);
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+}
+
+.citacao-cargo {
+    font-size: var(--text-body-xs);
+    color: var(--color-muted);
+}
+
+.valores-faixa h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-h3-pillar);
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.valores-faixa p {
+    font-size: var(--text-body-sm);
+    line-height: 1.55;
+    opacity: 0.85;
+}
+
+.valores-faixa--1 { background-color: #F5F5F5; color: var(--color-dark); }
+.valores-faixa--2 { background-color: #8A93A8; color: var(--color-dark); }
+.valores-faixa--3 { background-color: #1F4FD1; color: var(--color-light); }
+.valores-faixa--4 { background-color: #5B2A86; color: var(--color-light); }
+.valores-faixa--5 { background-color: #050810; color: var(--color-light); }
+
+/* Desktop: as faixas viram colunas, da mais clara à mais escura */
+
+@media (min-width: 1024px) {
+    .valores-faixas {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .valores-faixa {
+        min-height: 340px;
+        justify-content: flex-end;
+        padding: 3rem 1.4rem 2rem;
+    }
 }
 
 /* ---------- MODALIDADES ---------- */
