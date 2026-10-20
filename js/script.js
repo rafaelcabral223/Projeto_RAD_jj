@@ -437,6 +437,7 @@ const elementosRevelar = document.querySelectorAll(`
     .historia-txt,
     .timeline-item,
     .valores-txt,
+    .valores-faixa,
     .polos-cabecalho,
     .polos-busca,
     .polo-detalhe,
