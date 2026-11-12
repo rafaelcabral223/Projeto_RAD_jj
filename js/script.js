@@ -92,219 +92,281 @@ const observador = new IntersectionObserver((entradas, obs) => {
 contadores.forEach((contador) => observador.observe(contador));
 
 // =========================================================
+// CONTATOS GERAIS
+// =========================================================
+
+// WhatsApp geral da RAD (Mestre Rad). Trocando aqui, muda em todos os botões.
+const WHATSAPP_RAD = "5521982121315";
+
+// Monta o link do WhatsApp já com uma mensagem pronta
+function linkWhatsApp(numero, mensagem) {
+    return "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensagem);
+}
+
+// Botões com data-whatsapp="mensagem" viram links para o WhatsApp geral
+document.querySelectorAll("[data-whatsapp]").forEach((link) => {
+    link.href = linkWhatsApp(WHATSAPP_RAD, link.dataset.whatsapp);
+    link.target = "_blank";
+    link.rel = "noopener";
+});
+
+// =========================================================
 // POLOS
 // =========================================================
 
-// Dados dos polos. Para editar, é só trocar os textos aqui.
-// "turmas" segue a ordem: iniciante, juvenil, adolescente, adulto.
-// Use null quando o polo NÃO oferece aquela turma.
+// Turmas padrão (divisões que o Mestre Rad informou no formulário).
+// Cada polo usa uma lista com as turmas que oferece.
+function turmaGeral(dias, horario) {
+    return { nome: "Turma geral", idade: "A partir de 5 anos", dias, horario };
+}
+function turmaKids(idade, dias, horario) {
+    return { nome: "Kids", idade, dias, horario };
+}
+function turmaAdolescentes(dias, horario) {
+    return { nome: "Juvenil", idade: "11 a 15 anos", dias, horario };
+}
+function turmaAdultos(dias, horario) {
+    return { nome: "Adultos", idade: "A partir de 16 anos", dias, horario };
+}
+
+// Dados dos polos (respostas do formulário de 11/11/2026).
+// mapa: coordenadas "lat,lng" para o pin ficar no lugar certo.
+//       Sem coordenadas, o mapa busca pelo endereço.
+// Itens marcados com CONFIRMAR ainda precisam de resposta do Mestre Rad.
 const polos = [
+    // ---------- Rio de Janeiro ----------
     {
-        nome: "Pavão-Pavãozinho e Cantagalo",
-        endereco: "[Rua, número — Bairro, Cidade/UF]",
-        telefone: "[(21) 00000-0000]",
+        nome: "PPG – Pavão-Pavãozinho",
+        endereco: "R. Saint Roman, 76 (acesso pela Rua Papagaio) – Copacabana, Rio de Janeiro/RJ – CEP 22071-060",
+        referencia: "Beco da Tintinha, na Segundinha",
+        mapa: "-22.9809053,-43.1939797",
+        professor: "Mestre Rad (Rogério Guedes)",
+        whatsapp: "5521982121315",
         turmas: [
-            { dias: "[Seg · Qua]", horario: "[17h às 18h]" },
-            { dias: "[Seg · Qua]", horario: "[18h às 19h]" },
-            { dias: "[Ter · Qui]", horario: "[19h às 20h]" },
-            { dias: "[Ter · Qui]", horario: "[20h às 21h30]" }
+            turmaKids("5 a 10 anos", "Seg · Qua · Sex", "18h"),
+            turmaAdolescentes("Seg · Qua · Sex", "19h"),
+            turmaAdultos("Seg · Qua · Sex", "20h")
+            // CONFIRMAR: em setembro ele citou também "terças e quintas às 8h"
         ]
     },
     {
-        nome: "[Nome do polo 02]",
-        endereco: "[Rua, número — Bairro, Cidade/UF]",
-        telefone: "[(21) 00000-0000]",
+        nome: "Rocinha",
+        endereco: "Quadra da Rua 1 – Rocinha, Rio de Janeiro/RJ – CEP 22451-971",
+        referencia: "Na quadra da comunidade",
+        mapa: "-22.9906911,-43.2458365", // CONFIRMAR: pin aproximado (Rua Um)
+        professor: "Fabio Bino",
+        whatsapp: "5521997085082",
         turmas: [
-            { dias: "[Ter · Qui]", horario: "[16h às 17h]" },
-            { dias: "[Ter · Qui]", horario: "[17h às 18h]" },
-            null,
-            { dias: "[Seg · Qua · Sex]", horario: "[19h às 20h30]" }
+            turmaGeral("Ter · Qui", "19h")
         ]
     },
     {
-        nome: "[Nome do polo 03]",
-        endereco: "[Rua, número — Bairro, Cidade/UF]",
-        telefone: "[(21) 00000-0000]",
+        nome: "Bola de Neve",
+        endereco: "R. Assunção, 119 – Botafogo, Rio de Janeiro/RJ – CEP 22251-030",
+        referencia: "Dentro da Igreja Bola de Neve",
+        mapa: "-22.9444742,-43.1863265",
+        professor: "Mestre Rad (Rogério Guedes)",
+        whatsapp: "5521982121315",
         turmas: [
-            { dias: "[Sáb]", horario: "[9h às 10h]" },
-            { dias: "[Sáb]", horario: "[10h às 11h]" },
-            { dias: "[Sáb]", horario: "[11h às 12h]" },
-            null
+            turmaGeral("Qua", "20h")
+        ]
+    },
+    {
+        nome: "Ultra Botafogo",
+        endereco: "R. São Clemente, 159 – Botafogo, Rio de Janeiro/RJ – CEP 22260-003",
+        referencia: "Na academia",
+        mapa: "-22.9504832,-43.1870939",
+        professor: "Mestre Rad (Rogério Guedes)",
+        whatsapp: "5521982121315",
+        // CONFIRMAR: ele não informou a divisão das turmas nesse polo
+        turmas: [
+            turmaGeral("Seg", "9h"),
+            turmaGeral("Ter · Qui", "21h"),
+            turmaGeral("Qua · Sex", "5h30")
         ]
     },
     {
         nome: "Turano",
-        endereco: "R. Aureliano Portugal, 220 - Rio Comprido, Rio de Janeiro/RJ",
-        telefone: "[(21) 00000-0000]",
+        endereco: "R. Aureliano Portugal, 220 – Rio Comprido, Rio de Janeiro/RJ – CEP 20261-004",
+        referencia: "Dentro da ONG Fazendo Arte",
+        mapa: "-22.9250419,-43.2142951",
+        professor: "Léo Mendes",
+        whatsapp: "5521983268448",
         turmas: [
-            null,
-            { dias: "[Seg · Qua]", horario: "[17h às 18h]" },
-            { dias: "[Seg · Qua]", horario: "[18h às 19h]" },
-            { dias: "[Seg · Qua]", horario: "[19h às 20h30]" }
+            turmaGeral("Ter · Qui", "18h") // horário da mensagem de setembro
         ]
     },
     {
-        nome: "[Nome do polo 05]",
-        endereco: "[Rua, número — Bairro, Cidade/UF]",
-        telefone: "[(21) 00000-0000]",
+        nome: "Andaraí (Sede)",
+        endereco: "R. Leopoldo, 71 – Andaraí, Rio de Janeiro/RJ – CEP 20541-170",
+        referencia: "Dentro da Primeira Igreja Batista do Andaraí",
+        mapa: "-22.9259096,-43.2504032",
+        professor: "Rodrigo Figueiredo",
+        whatsapp: "5521964450143",
+        // CONFIRMAR: ele mandou "seg a sex, 18h, 19h e 20h" e marcou 3 turmas.
+        // Seguimos o mesmo padrão do PPG (18h kids, 19h adolescentes, 20h adultos).
         turmas: [
-            { dias: "[Seg · Qua]", horario: "[17h às 18h]" },
-            { dias: "[Seg · Qua]", horario: "[18h às 19h]" },
-            { dias: "[Ter · Qui]", horario: "[19h às 20h]" },
-            { dias: "[Ter · Qui]", horario: "[20h às 21h30]" }
+            turmaKids("5 a 10 anos", "Seg a Sex", "18h"),
+            turmaAdolescentes("Seg a Sex", "19h"),
+            turmaAdultos("Seg a Sex", "20h")
         ]
     },
     {
-        nome: "[Nome do polo 06]",
-        endereco: "[Rua, número — Bairro, Cidade/UF]",
-        telefone: "[(21) 00000-0000]",
+        nome: "Formiga",
+        endereco: "R. Camaiore, 23 – Tijuca, Rio de Janeiro/RJ – CEP 20530-170",
+        referencia: "Quadra da associação de moradores",
+        mapa: "-22.9410274,-43.2437691",
+        professor: "Roney Galvão",
+        whatsapp: "5531994987656", // CONFIRMAR: DDD 31 (Minas Gerais)
+        // CONFIRMAR: marcou 2 turmas, mas só informou "20h"
         turmas: [
-            { dias: "[Ter · Qui]", horario: "[16h às 17h]" },
-            { dias: "[Ter · Qui]", horario: "[17h às 18h]" },
-            null,
-            { dias: "[Seg · Qua · Sex]", horario: "[19h às 20h30]" }
+            turmaKids("5 a 15 anos", "Ter · Qui", "A definir"),
+            turmaAdultos("Ter · Qui", "20h")
         ]
     },
     {
-        nome: "[Nome do polo 07]",
-        endereco: "[Rua, número — Bairro, Cidade/UF]",
-        telefone: "[(21) 00000-0000]",
+        nome: "Vila Isabel",
+        endereco: "R. Barão de São Francisco, 295 – Andaraí, Rio de Janeiro/RJ – CEP 20541-371",
+        referencia: "Na academia",
+        mapa: "-22.9189367,-43.2511106",
+        professor: "Guilherme Mompa",
+        whatsapp: "5521994380493",
         turmas: [
-            { dias: "[Sáb]", horario: "[9h às 10h]" },
-            { dias: "[Sáb]", horario: "[10h às 11h]" },
-            { dias: "[Sáb]", horario: "[11h às 12h]" },
-            null
+            turmaGeral("Seg a Sex", "20h") // CONFIRMAR os dias
         ]
     },
     {
-        nome: "[Nome do polo 08]",
-        endereco: "[Rua, número — Bairro, Cidade/UF]",
-        telefone: "[(21) 00000-0000]",
+        nome: "Araruama",
+        endereco: "Rua E-A, 75 – Residencial Victória, Morro Grande, Araruama/RJ – CEP 28986-468",
+        referencia: "Dentro do condomínio, perto da padaria Favorita de Paracatu (antigo Casal 20)",
+        mapa: "-22.8206549,-42.369331", // pin no Residencial Victória
+        professor: "Maximilian Max",
+        whatsapp: "5521994614901",
         turmas: [
-            null,
-            { dias: "[Seg · Qua]", horario: "[17h às 18h]" },
-            { dias: "[Seg · Qua]", horario: "[18h às 19h]" },
-            { dias: "[Seg · Qua]", horario: "[19h às 20h30]" }
+            turmaKids("5 a 15 anos", "Seg a Qui", "18h"),
+            turmaAdultos("Seg a Qui", "20h")
+        ]
+    },
+
+    // ---------- Bahia ----------
+    {
+        nome: "Ibirataia",
+        endereco: "R. Bom Jesus, s/n – Ibirataia/BA – CEP 45580-000",
+        referencia: "Em cima da sorveteria da praça",
+        mapa: "-14.0688813,-39.6385435",
+        professor: "Gilmar de Souza",
+        whatsapp: "5573999989587",
+        turmas: [
+            turmaKids("5 a 15 anos", "Ter · Qua · Qui", "18h"),
+            turmaAdultos("Ter · Qua · Qui", "19h30")
         ]
     },
     {
-        nome: "[Nome do polo 09]",
-        endereco: "[Rua, número — Bairro, Cidade/UF]",
-        telefone: "[(21) 00000-0000]",
+        nome: "Nova Ibirataia",
+        endereco: "Rua do Alto, 26 – Nova Ibirataia, Ibirataia/BA – CEP 45580-000",
+        referencia: "Acima da rodoviária",
+        mapa: "", // não encontramos no Google: o mapa busca pelo endereço
+        professor: "Laerte e Laecyo Souza",
+        whatsapp: "5573999698603",
         turmas: [
-            { dias: "[Seg · Qua]", horario: "[17h às 18h]" },
-            { dias: "[Seg · Qua]", horario: "[18h às 19h]" },
-            { dias: "[Ter · Qui]", horario: "[19h às 20h]" },
-            { dias: "[Ter · Qui]", horario: "[20h às 21h30]" }
+            turmaGeral("Ter · Qui", "19h")
         ]
     },
     {
-        nome: "[Nome do polo 10]",
-        endereco: "[Rua, número — Bairro, Cidade/UF]",
-        telefone: "[(21) 00000-0000]",
+        nome: "Algodão",
+        endereco: "R. José Muniz Ferreira, s/n – Algodão, Ibirataia/BA – CEP 45580-000",
+        referencia: "Dentro da escola",
+        mapa: "-13.9309808,-39.6244055",
+        professor: "Wellington Gegel",
+        whatsapp: "5573999825763",
         turmas: [
-            { dias: "[Ter · Qui]", horario: "[16h às 17h]" },
-            { dias: "[Ter · Qui]", horario: "[17h às 18h]" },
-            null,
-            { dias: "[Seg · Qua · Sex]", horario: "[19h às 20h30]" }
+            turmaKids("5 a 15 anos", "Ter · Qui", "19h"),
+            turmaAdultos("Ter · Qui", "20h")
         ]
     },
     {
-        nome: "[Nome do polo 11]",
-        endereco: "[Rua, número — Bairro, Cidade/UF]",
-        telefone: "[(21) 00000-0000]",
+        nome: "Ipiaú",
+        endereco: "R. Esperança, 46 – Euclides Neto, Ipiaú/BA – CEP 45570-000",
+        referencia: "",
+        mapa: "-14.1262911,-39.7393288",
+        professor: "Fátima Gonçalves",
+        whatsapp: "5573998256236",
+        // Ele escreveu "19h e 29h": entendemos 19h e 20h
         turmas: [
-            { dias: "[Sáb]", horario: "[9h às 10h]" },
-            { dias: "[Sáb]", horario: "[10h às 11h]" },
-            { dias: "[Sáb]", horario: "[11h às 12h]" },
-            null
+            turmaKids("5 a 15 anos", "Seg · Qua · Sex", "19h"),
+            turmaAdultos("Seg · Qua · Sex", "20h")
         ]
-    },
-    {
-        nome: "[Nome do polo 12]",
-        endereco: "[Rua, número — Bairro, Cidade/UF]",
-        telefone: "[(21) 00000-0000]",
-        turmas: [
-            { dias: "[Sáb]", horario: "[9h às 10h]" },
-            { dias: "[Sáb]", horario: "[10h às 11h]" },
-            { dias: "[Sáb]", horario: "[11h às 12h]" },
-            null
-        ]
-    },
-    {
-        nome: "[Nome do polo 12]",
-        endereco: "[Rua, número — Bairro, Cidade/UF]",
-        telefone: "[(21) 00000-0000]",
-        turmas: [
-            { dias: "[Sáb]", horario: "[9h às 10h]" },
-            { dias: "[Sáb]", horario: "[10h às 11h]" },
-            { dias: "[Sáb]", horario: "[11h às 12h]" },
-            null
-        ]
-    },
-    {
-        nome: "[Nome do polo 12]",
-        endereco: "[Rua, número — Bairro, Cidade/UF]",
-        telefone: "[(21) 00000-0000]",
-        turmas: [
-            { dias: "[Sáb]", horario: "[9h às 10h]" },
-            { dias: "[Sáb]", horario: "[10h às 11h]" },
-            { dias: "[Sáb]", horario: "[11h às 12h]" },
-            null
-        ]
-    },
-    {
-        nome: "[Nome do polo 15]",
-        endereco: "[Rua, número — Bairro, Cidade/UF]",
-        telefone: "[(21) 00000-0000]",
-        turmas: [
-            { dias: "[Sáb]", horario: "[9h às 10h]" },
-            { dias: "[Sáb]", horario: "[10h às 11h]" },
-            { dias: "[Sáb]", horario: "[11h às 12h]" },
-            null
-        ]
-    }            
+    }
 ];
 
 const selectPolo = document.getElementById("polo-select");
-const cardsTurma = document.querySelectorAll(".polo-turma");
+const listaTurmas = document.getElementById("polo-lista-turmas");
 const buscaPolo = document.getElementById("polo-busca");
 const cardsPolo = document.getElementById("polos-cards");
+
+// Quantidade de polos no seletor e no contador
+document.querySelectorAll(".polos-total").forEach((el) => {
+    el.textContent = polos.length;
+});
 
 // Transforma 0 em "01", 1 em "02"...
 function numeroPolo(indice) {
     return String(indice + 1).padStart(2, "0");
 }
 
+// (21) 98212-1315 a partir de "5521982121315"
+function formatarTelefone(numero) {
+    const n = numero.replace(/^55/, "");
+    return "(" + n.slice(0, 2) + ") " + n.slice(2, n.length - 4) + "-" + n.slice(-4);
+}
+
+// Cria o card de uma turma
+function criarTurma(turma) {
+    const card = document.createElement("div");
+    card.className = "polo-turma";
+    card.innerHTML = `
+        <div class="polo-turma-topo">
+            <span class="polo-idade"></span>
+            <h4></h4>
+        </div>
+        <div class="polo-disponivel">
+            <p><i class="fa-regular fa-calendar"></i> <span class="polo-dias"></span></p>
+            <p><i class="fa-regular fa-clock"></i> <span class="polo-horario"></span></p>
+        </div>
+    `;
+    card.querySelector(".polo-idade").textContent = turma.idade;
+    card.querySelector("h4").textContent = turma.nome;
+    card.querySelector(".polo-dias").textContent = turma.dias;
+    card.querySelector(".polo-horario").textContent = turma.horario;
+    return card;
+}
+
 // Mostra na tela os dados do polo escolhido
 function mostrarPolo(indice) {
     const polo = polos[indice];
-    const enderecoUrl = encodeURIComponent(polo.endereco);
+    const local = encodeURIComponent(polo.mapa || polo.endereco);
 
     document.getElementById("polo-numero").textContent = "Polo " + numeroPolo(indice);
     document.getElementById("polo-nome").textContent = polo.nome;
     document.getElementById("polo-endereco").textContent = polo.endereco;
-    document.getElementById("polo-telefone").textContent = polo.telefone;
-    document.getElementById("polo-mapa-frame").src = "https://www.google.com/maps?q=" + enderecoUrl + "&output=embed";
-    document.getElementById("polo-link").href = "https://www.google.com/maps/search/?api=1&query=" + enderecoUrl;
+    document.getElementById("polo-professor").textContent = "Professor: " + polo.professor;
+    document.getElementById("polo-mapa-frame").src = "https://www.google.com/maps?q=" + local + "&output=embed";
+    document.getElementById("polo-link").href = "https://www.google.com/maps/dir/?api=1&destination=" + local;
 
-    // Preenche os horários de cada turma
-    let disponiveis = 0;
+    const referencia = document.getElementById("polo-referencia");
+    referencia.textContent = polo.referencia;
+    referencia.parentElement.hidden = !polo.referencia;
 
-    cardsTurma.forEach((card, i) => {
-        const turma = polo.turmas[i];
+    const whats = document.getElementById("polo-whatsapp");
+    whats.textContent = formatarTelefone(polo.whatsapp);
+    whats.href = linkWhatsApp(polo.whatsapp, "Olá! Vi o site da RAD Jiu Jitsu e tenho interesse no polo " + polo.nome + ".");
 
-        if (turma) {
-            card.classList.remove("indisponivel");
-            card.querySelector(".polo-dias").textContent = turma.dias;
-            card.querySelector(".polo-horario").textContent = turma.horario;
-            disponiveis++;
-        } else {
-            card.classList.add("indisponivel");
-        }
-    });
+    // Turmas do polo
+    listaTurmas.innerHTML = "";
+    polo.turmas.forEach((turma) => listaTurmas.appendChild(criarTurma(turma)));
 
-    document.getElementById("polo-qtd").textContent = disponiveis + " turmas";
+    const qtd = polo.turmas.length;
+    document.getElementById("polo-qtd").textContent = qtd + (qtd === 1 ? " horário" : " horários");
 
     // Mantém o select e o card selecionado sincronizados
     selectPolo.value = indice;
