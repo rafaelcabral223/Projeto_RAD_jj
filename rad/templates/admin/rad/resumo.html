@@ -1,0 +1,74 @@
+<div class="rad-painel">
+
+    <div class="rad-atalhos">
+        <a class="rad-atalho rad-atalho-principal" href="{% url 'admin:rad_aluno_add' %}">+ Cadastrar aluno</a>
+        <a class="rad-atalho" href="{% url 'admin:rad_alunodestaque_add' %}">★ Escolher aluno destaque</a>
+        <a class="rad-atalho" href="{% url 'admin:rad_polo_changelist' %}">Editar polos e horários</a>
+        <a class="rad-atalho" href="/" target="_blank" rel="noopener">Ver o site ↗</a>
+    </div>
+
+    <div class="rad-numeros">
+        <a class="rad-numero" href="{% url 'admin:rad_aluno_changelist' %}?ativo__exact=1">
+            <strong>{{ total_alunos }}</strong><span>alunos ativos</span>
+        </a>
+        <a class="rad-numero" href="{% url 'admin:rad_polo_changelist' %}">
+            <strong>{{ total_polos }}</strong><span>polos no site</span>
+        </a>
+        <a class="rad-numero" href="{% url 'admin:rad_aluno_changelist' %}?ativo__exact=1&faixa__exact=preta">
+            <strong>{{ total_faixas_pretas }}</strong><span>faixas-pretas cadastrados</span>
+        </a>
+        <a class="rad-numero{% if sem_atestado %} rad-numero-alerta{% endif %}" href="{% url 'admin:rad_aluno_changelist' %}?ativo__exact=1&atestado_medico__exact=0">
+            <strong>{{ sem_atestado }}</strong><span>sem atestado médico</span>
+        </a>
+    </div>
+
+    <div class="rad-colunas">
+        <section class="rad-card">
+            <h2>Alunos por polo</h2>
+            <ul class="rad-barras">
+                {% for polo in polos %}
+                <li>
+                    <a href="{% url 'admin:rad_aluno_changelist' %}?polo__id__exact={{ polo.id }}&ativo__exact=1">
+                        <span class="rad-barras-nome">{{ polo.nome }}</span>
+                        <span class="rad-barras-trilho"><span style="width: {{ polo.percentual }}%"></span></span>
+                        <span class="rad-barras-total">{{ polo.total }}</span>
+                    </a>
+                </li>
+                {% empty %}
+                <li>Nenhum polo cadastrado.</li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <div class="rad-coluna-lateral">
+            <section class="rad-card rad-destaque">
+                <h2>Aluno destaque no site</h2>
+                {% if destaque %}
+                    <div class="rad-destaque-corpo">
+                        {% if destaque.foto_site %}<img src="{{ destaque.foto_site.url }}" alt="">{% endif %}
+                        <div>
+                            <strong>{{ destaque.aluno.nome_publico }}</strong>
+                            <span>{{ destaque.aluno.polo }} · Faixa {{ destaque.aluno.get_faixa_display|lower }}</span>
+                            {% if destaque.periodo %}<span>{{ destaque.periodo }}</span>{% endif %}
+                        </div>
+                    </div>
+                    <a href="{% url 'admin:rad_alunodestaque_change' destaque.id %}">Editar destaque →</a>
+                {% else %}
+                    <p>Nenhum aluno destaque no site. A seção fica escondida até você escolher um.</p>
+                    <a href="{% url 'admin:rad_alunodestaque_add' %}">Escolher agora →</a>
+                {% endif %}
+            </section>
+
+            <section class="rad-card">
+                <h2>Últimos cadastros</h2>
+                <ul class="rad-lista">
+                    {% for aluno in ultimos %}
+                    <li><a href="{% url 'admin:rad_aluno_change' aluno.id %}">{{ aluno.nome }}</a><span>{{ aluno.polo }}</span></li>
+                    {% empty %}
+                    <li>Nenhum aluno cadastrado ainda.</li>
+                    {% endfor %}
+                </ul>
+            </section>
+        </div>
+    </div>
+</div>
