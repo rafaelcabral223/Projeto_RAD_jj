@@ -1146,15 +1146,52 @@ html {
     color: var(--color-dark);
 }
 
-.polo-cta a {
-    margin-top: auto;
+/* Botão "Quero me inscrever": escuro para se destacar do card amarelo */
+.polo-cta .polo-cta-btn {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-weight: 600;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    padding: 1.1rem 1.4rem;
+    font-size: var(--text-body-lg);
+    font-weight: 700;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
     text-decoration: none;
+    color: #FFFFFF;
+    background-color: var(--color-dark);
+    border-radius: 3px;
+    box-shadow: 0 6px 18px rgba(10, 14, 26, 0.25);
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.polo-cta .polo-cta-btn span {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.polo-cta .polo-cta-btn i {
+    font-size: 1.3em;
+    color: var(--color-gold);
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.polo-cta .polo-cta-btn:hover,
+.polo-cta .polo-cta-btn:focus-visible {
     color: var(--color-dark);
+    background-color: var(--color-gold);
+    transform: translateY(-2px);
+}
+
+.polo-cta .polo-cta-btn:hover i,
+.polo-cta .polo-cta-btn:focus-visible i {
+    color: var(--color-dark);
+}
+
+.polo-cta .polo-cta-btn:hover .fa-arrow-right-long {
+    transform: translateX(4px);
 }
 
 /* GALERIA */

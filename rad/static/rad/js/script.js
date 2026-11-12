@@ -181,6 +181,12 @@ function mostrarPolo(indice) {
     whats.textContent = formatarTelefone(polo.whatsapp);
     whats.href = linkWhatsApp(polo.whatsapp, "Olá! Vi o site da RAD Jiu Jitsu e tenho interesse no polo " + polo.nome + ".");
 
+    // "Quero me inscrever" já leva o nome do polo escolhido na mensagem
+    document.getElementById("polo-inscrever").href = linkWhatsApp(
+        WHATSAPP_RAD,
+        "Olá! Vi o site da RAD Jiu Jitsu e quero me inscrever no polo " + polo.nome + "."
+    );
+
     // Turmas do polo
     listaTurmas.innerHTML = "";
     polo.turmas.forEach((turma) => listaTurmas.appendChild(criarTurma(turma)));
