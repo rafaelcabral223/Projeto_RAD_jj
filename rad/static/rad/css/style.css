@@ -1563,8 +1563,10 @@ html {
 .apoie-parceiros {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 1rem;
     margin-top: 2.5rem;
+    text-align: center;
 }
 
 .apoie-parceiros-titulo {
@@ -1578,6 +1580,7 @@ html {
 .apoie-parceiros-lista {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 0.6rem;
     list-style: none;
 }
