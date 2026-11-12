@@ -14,6 +14,7 @@ rad/                  ← o app (é isso que vai para o projeto Django da equipe
 ├── urls.py
 ├── tests.py          8 testes (python manage.py test rad)
 ├── management/commands/popular_dados.py   13 polos atuais + usuário admin/admin
+├── management/commands/gerar_estatico.py  landing estática para o Netlify
 ├── templates/
 │   ├── rad/index.html        landing page
 │   └── admin/                tema do painel (login, início com resumo)
@@ -77,6 +78,18 @@ Regras que o banco garante:
   atestado, autorização), ação **Exportar para planilha (CSV)**.
 - Polos: turmas editadas na mesma tela; "aparece no site" e ordem editáveis na lista.
 - Aluno destaque: escolha com busca e prévia de como fica no site.
+
+## Netlify (preview das PRs)
+
+O Netlify só serve arquivos prontos e não roda Django. Por isso o `netlify.toml`
+manda ele gerar a landing como site estático a cada deploy:
+
+```bash
+python manage.py gerar_estatico   # cria dist/ com index.html + static/
+```
+
+No Netlify aparecem a landing e os polos cadastrados no `popular_dados`.
+O painel (`/admin`) e o aluno destaque só funcionam no servidor Django (PythonAnywhere).
 
 ## Antes de ir para produção (PythonAnywhere)
 

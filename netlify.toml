@@ -1,0 +1,8 @@
+# O Netlify não roda Django: ele gera a landing como site estático a cada deploy.
+# O painel (/admin) funciona só no servidor Django (PythonAnywhere).
+[build]
+  command = "python manage.py migrate --noinput && python manage.py popular_dados && python manage.py gerar_estatico"
+  publish = "dist"
+
+[build.environment]
+  PYTHON_VERSION = "3.12"
