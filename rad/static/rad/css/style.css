@@ -1877,8 +1877,9 @@ html {
 
     /* GALERIA */
 
+    /* Sempre 3 colunas: as fotos crescem junto com a tela */
     .galeria-fotos{
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-columns: repeat(3, 1fr);
     }
 
     /* ---------- APOIE ---------- */
