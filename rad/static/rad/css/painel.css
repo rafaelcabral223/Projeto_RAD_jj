@@ -2,9 +2,8 @@
    PAINEL RAD: tema do Django admin com as cores da landing
    ========================================================= */
 
-:root,
-html[data-theme="light"],
-html[data-theme="dark"] {
+:root {
+    color-scheme: light;
     --rad-escuro: #0A0E1A;
     --rad-card: #1a2030;
     --rad-dourado: #F2C230;
@@ -37,8 +36,7 @@ html[data-theme="dark"] {
     --font-family-primary: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
-:root,
-html[data-theme="light"] {
+:root {
     --link-fg: #1f4fa3;
     --link-hover-color: #0A0E1A;
     --link-selected-fg: #0A0E1A;
@@ -47,20 +45,9 @@ html[data-theme="light"] {
     --darkened-bg: #eef0f4;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-        --link-fg: var(--rad-dourado);
-        --link-hover-color: #ffffff;
-        --link-selected-fg: var(--rad-dourado);
-        --selected-row: #2a2a1a;
-    }
-}
-
-html[data-theme="dark"] {
-    --link-fg: var(--rad-dourado);
-    --link-hover-color: #ffffff;
-    --link-selected-fg: var(--rad-dourado);
-    --selected-row: #2a2a1a;
+/* Sem modo escuro: esconde o botão de alternar tema */
+.theme-toggle {
+    display: none !important;
 }
 
 /* Botões de ação (Salvar, Adicionar...) com texto escuro sobre dourado */
