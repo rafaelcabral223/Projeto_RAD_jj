@@ -1,0 +1,455 @@
+/* =========================================================
+   PAINEL RAD: tema do Django admin com as cores da landing
+   ========================================================= */
+
+:root,
+html[data-theme="light"],
+html[data-theme="dark"] {
+    --rad-escuro: #0A0E1A;
+    --rad-card: #1a2030;
+    --rad-dourado: #F2C230;
+    --rad-dourado-hover: #ffd350;
+
+    --primary: var(--rad-escuro);
+    --secondary: var(--rad-card);
+    --accent: var(--rad-dourado);
+    --primary-fg: #ffffff;
+
+    --header-color: #ffffff;
+    --header-branding-color: var(--rad-dourado);
+    --header-bg: var(--rad-escuro);
+    --header-link-color: #ffffff;
+
+    --breadcrumbs-fg: #c0c0c8;
+    --breadcrumbs-link-fg: #ffffff;
+    --breadcrumbs-bg: var(--rad-card);
+
+    --button-fg: var(--rad-escuro);
+    --button-bg: var(--rad-dourado);
+    --button-hover-bg: var(--rad-dourado-hover);
+    --default-button-bg: var(--rad-dourado);
+    --default-button-hover-bg: var(--rad-dourado-hover);
+
+    --object-tools-fg: var(--rad-escuro);
+    --object-tools-bg: var(--rad-dourado);
+    --object-tools-hover-bg: var(--rad-dourado-hover);
+
+    --font-family-primary: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+:root,
+html[data-theme="light"] {
+    --link-fg: #1f4fa3;
+    --link-hover-color: #0A0E1A;
+    --link-selected-fg: #0A0E1A;
+    --selected-row: #fff6d6;
+    --body-bg: #f6f6f8;
+    --darkened-bg: #eef0f4;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --link-fg: var(--rad-dourado);
+        --link-hover-color: #ffffff;
+        --link-selected-fg: var(--rad-dourado);
+        --selected-row: #2a2a1a;
+    }
+}
+
+html[data-theme="dark"] {
+    --link-fg: var(--rad-dourado);
+    --link-hover-color: #ffffff;
+    --link-selected-fg: var(--rad-dourado);
+    --selected-row: #2a2a1a;
+}
+
+/* Botões de ação (Salvar, Adicionar...) com texto escuro sobre dourado */
+.button, input[type=submit], input[type=button], .submit-row input, a.button,
+.object-tools a {
+    color: var(--rad-escuro) !important;
+    font-weight: 600;
+}
+
+.submit-row a.deletelink {
+    color: #fff !important;
+}
+
+/* ---------------------------------------------------------- CABEÇALHO */
+
+#header {
+    padding: 14px 32px;
+    border-bottom: 3px solid var(--rad-dourado);
+}
+
+#site-name {
+    margin: 0;
+}
+
+.rad-marca {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: #fff !important;
+    text-decoration: none;
+}
+
+.rad-marca img {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+}
+
+.rad-marca span {
+    font-family: "Big Shoulders Display", sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.rad-marca small {
+    margin-left: 6px;
+    font-size: 0.95rem;
+    color: var(--rad-dourado);
+}
+
+#content h1 {
+    font-family: "Big Shoulders Display", sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+/* ---------------------------------------------------------- LOGIN */
+
+body.login {
+    min-height: 100vh;
+    background:
+        linear-gradient(rgba(10, 14, 26, 0.88), rgba(10, 14, 26, 0.95)),
+        url("../assets/images/img_hero.webp") center / cover no-repeat fixed;
+}
+
+body.login #container {
+    margin-top: 12vh;
+    max-width: 380px;
+    border: 0;
+    border-top: 4px solid var(--rad-dourado);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+body.login #header {
+    justify-content: center;
+    padding: 24px;
+    border-bottom: 0;
+}
+
+body.login #content {
+    padding: 24px 28px 28px;
+}
+
+body.login .submit-row input {
+    width: 100%;
+    padding: 12px;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ---------------------------------------------------------- INÍCIO DO PAINEL */
+
+.rad-painel {
+    margin-bottom: 32px;
+}
+
+.rad-atalhos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.rad-atalho {
+    padding: 10px 16px;
+    font-weight: 600;
+    border: 1px solid var(--hairline-color);
+    border-radius: 4px;
+    background: var(--body-bg);
+}
+
+.rad-atalho:hover {
+    border-color: var(--rad-dourado);
+    text-decoration: none;
+}
+
+.rad-atalho-principal,
+.rad-atalho-principal:link,
+.rad-atalho-principal:visited {
+    color: var(--rad-escuro) !important;
+    background: var(--rad-dourado);
+    border-color: var(--rad-dourado);
+}
+
+.rad-numeros {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.rad-numero,
+.rad-numero:link,
+.rad-numero:visited {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 18px 20px;
+    color: #fff;
+    background: var(--rad-escuro);
+    border-left: 4px solid var(--rad-dourado);
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.rad-numero:hover {
+    background: var(--rad-card);
+    text-decoration: none;
+}
+
+.rad-numero strong {
+    font-family: "Big Shoulders Display", sans-serif;
+    font-size: 2.6rem;
+    line-height: 1;
+    color: var(--rad-dourado);
+}
+
+.rad-numero span {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #c0c0c8;
+}
+
+.rad-numero-alerta {
+    border-left-color: #e5534b;
+}
+
+.rad-numero-alerta strong {
+    color: #ff8a80;
+}
+
+.rad-colunas {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+@media (min-width: 1024px) {
+    .rad-colunas {
+        grid-template-columns: 3fr 2fr;
+    }
+}
+
+.rad-coluna-lateral {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.rad-card {
+    padding: 20px 22px;
+    background: var(--body-bg);
+    border: 1px solid var(--hairline-color);
+    border-radius: 6px;
+}
+
+.rad-card h2,
+.rad-secao-titulo {
+    margin: 0 0 14px;
+    padding: 0;
+    font-family: "Big Shoulders Display", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--body-fg);
+    background: none;
+}
+
+.rad-secao-titulo {
+    margin-top: 8px;
+}
+
+.rad-barras,
+.rad-lista {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.rad-barras li a {
+    display: grid;
+    grid-template-columns: 150px 1fr 36px;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 0;
+    color: var(--body-fg);
+    text-decoration: none;
+}
+
+.rad-barras-nome {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.rad-barras-trilho {
+    height: 10px;
+    background: var(--darkened-bg);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.rad-barras-trilho span {
+    display: block;
+    height: 100%;
+    min-width: 4px;
+    background: var(--rad-dourado);
+    border-radius: 5px;
+}
+
+.rad-barras-total {
+    font-weight: 600;
+    text-align: right;
+}
+
+.rad-lista li {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--hairline-color);
+}
+
+.rad-lista li:last-child {
+    border-bottom: 0;
+}
+
+.rad-lista li span {
+    color: var(--body-quiet-color);
+}
+
+.rad-destaque {
+    border-top: 4px solid var(--rad-dourado);
+}
+
+.rad-destaque-corpo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 12px;
+}
+
+.rad-destaque-corpo img {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--rad-dourado);
+}
+
+.rad-destaque-corpo div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.rad-destaque-corpo strong {
+    font-size: 1.05rem;
+}
+
+.rad-destaque-corpo span {
+    color: var(--body-quiet-color);
+}
+
+/* ---------------------------------------------------------- LISTAS */
+
+.rad-miniatura {
+    object-fit: cover;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.rad-sem-foto {
+    color: var(--body-quiet-color);
+}
+
+.rad-faixa {
+    display: inline-block;
+    padding: 2px 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    white-space: nowrap;
+}
+
+.rad-faixa-branca  { background: #ffffff; color: #222; }
+.rad-faixa-cinza   { background: #9e9e9e; color: #fff; }
+.rad-faixa-amarela { background: #f5d33b; color: #222; }
+.rad-faixa-laranja { background: #f08a24; color: #fff; }
+.rad-faixa-verde   { background: #2e9b4f; color: #fff; }
+.rad-faixa-azul    { background: #1f5fbf; color: #fff; }
+.rad-faixa-roxa    { background: #6a3fa0; color: #fff; }
+.rad-faixa-marrom  { background: #6d4426; color: #fff; }
+.rad-faixa-preta   { background: #111111; color: #fff; border-right: 6px solid #c62828; }
+
+/* Prévia do aluno destaque */
+.rad-previa {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    max-width: 520px;
+    padding: 16px;
+    color: #fff;
+    background: var(--rad-escuro);
+    border-left: 4px solid var(--rad-dourado);
+    border-radius: 4px;
+}
+
+.rad-previa strong {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--rad-dourado);
+}
+
+.rad-previa span {
+    font-size: 0.85rem;
+    color: #c0c0c8;
+}
+
+.rad-previa p {
+    margin: 6px 0 0;
+    padding: 0;
+    color: #fff;
+}
+
+/* Tira os marcadores padrão das listas do admin */
+.rad-barras li,
+.rad-lista li {
+    list-style: none;
+    margin: 0;
+}
+
+.rad-barras,
+.rad-lista {
+    margin-left: 0;
+}
+
+/* O Django limita o início do painel a 600px: usamos a largura toda */
+.dashboard #content {
+    width: auto;
+    max-width: 1200px;
+}

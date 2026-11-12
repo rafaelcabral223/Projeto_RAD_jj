@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% load static %}<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -8,9 +8,9 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="RAD Jiu Jitsu | Projeto Guerreiros de Fé">
     <meta property="og:description" content="Aulas gratuitas de Jiu-Jitsu desde 2003. Encontre um dos nossos 13 polos no Rio de Janeiro e na Bahia.">
-    <meta property="og:image" content="assets/images/img_hero.webp">
+    <meta property="og:image" content="{% static 'rad/assets/images/img_hero.webp' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{% static 'rad/css/style.css' %}">
 </head>
 <body>
 
@@ -19,7 +19,7 @@
         <nav class="nav-container">
             <div id="nav-logo">
                 <a href="#">
-                    <img src="assets/images/logo-projeto.webp" alt="Logo do Projeto - RAD Jiu Jitsu">
+                    <img src="{% static 'rad/assets/images/logo-projeto.webp' %}" alt="Logo do Projeto - RAD Jiu Jitsu">
                     RAD JIU JITSU
                 </a>
             </div>
@@ -38,7 +38,7 @@
 
         <!-- HERO -->
         <section class="hero">
-            <img src="assets/images/img_hero.webp" alt="Equipe da RAD Jiu Jitsu em Formação">
+            <img src="{% static 'rad/assets/images/img_hero.webp' %}" alt="Equipe da RAD Jiu Jitsu em Formação">
 
             <div id="hero-conteudo">
                 <h2>Formando <span>campeões</span> dentro e fora do tatame</h2>
@@ -68,7 +68,7 @@
             </div>
 
             <div class="counter-box">
-                <h3 class="counter" data-target="13">0</h3>
+                <h3 class="counter" data-target="{{ polos|length }}">0</h3>
                 <p>Polos no RJ e na BA</p>
             </div>
         </section>
@@ -76,7 +76,7 @@
         <!-- HISTÓRIA -->
         <section class="historia-container" id="historia">
             <div class="historia-img">
-                <img src="assets/images/img_historia.webp" alt="Alunos da RAD Jiu Jitsu no tatame">
+                <img src="{% static 'rad/assets/images/img_historia.webp' %}" alt="Alunos da RAD Jiu Jitsu no tatame">
             </div>
 
             <div class="historia-txt">
@@ -211,7 +211,7 @@
         <h2>MODALIDADES</h2>
         <div id="modalidades-line">
             <div class="modalidade-box">
-                <img src="assets/images/img_hero.webp" alt="">
+                <img src="{% static 'rad/assets/images/img_hero.webp' %}" alt="">
                 <div class="modalidade-descricao">
                     <h3>TURMA 01</h3>
                     <p>[Breve descrição da turma: foco, nível e o que o aluno desenvolve.]</p>
@@ -236,7 +236,7 @@
 
             <!-- Seletor (mobile) -->
             <div class="polos-select">
-                <label for="polo-select">Escolha seu polo · <span class="polos-total">13</span> polos</label>
+                <label for="polo-select">Escolha seu polo · <span class="polos-total">{{ polos|length }}</span> polos</label>
                 <div class="polos-select-campo">
                     <select id="polo-select"></select>
                     <i class="fa-solid fa-chevron-down"></i>
@@ -298,6 +298,29 @@
         </div>
     </section>
 
+    <!-- ALUNO DESTAQUE: escolhido pelo Mestre Rad no painel. Sem destaque, a seção não aparece. -->
+    {% if destaque %}
+    <section class="destaque-container" id="destaque">
+        <div class="destaque-conteudo revelar">
+            {% if destaque.foto_site %}
+            <div class="destaque-foto">
+                <img src="{{ destaque.foto_site.url }}" alt="{{ destaque.aluno.nome_publico }}, aluno destaque da RAD Jiu Jitsu">
+            </div>
+            {% endif %}
+
+            <div class="destaque-texto">
+                <span class="destaque-label">{{ destaque.titulo }}{% if destaque.periodo %} · {{ destaque.periodo }}{% endif %}</span>
+                <h2>{{ destaque.aluno.nome_publico }}</h2>
+                <p class="destaque-info">
+                    <span>Polo {{ destaque.aluno.polo.nome }}</span>
+                    <span class="destaque-faixa destaque-faixa-{{ destaque.aluno.faixa }}">Faixa {{ destaque.aluno.get_faixa_display|lower }}</span>
+                </p>
+                <p class="destaque-descricao">{{ destaque.texto|linebreaksbr }}</p>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
     <!-- GALERIA -->
     <section class="galeria-container" id="galeria">
         <h2>Galeria</h2>
@@ -305,12 +328,12 @@
 
         <!-- Para adicionar fotos, é só colocar mais <img> aqui. A grade se ajusta sozinha. -->
         <div class="galeria-fotos">
-            <img src="assets/images/galeria-04.webp" alt="Alunos e professores de vários polos da RAD reunidos em um encontro no tatame" loading="lazy">
-            <img src="assets/images/galeria-05.webp" alt="Alunos do polo Turano com o professor Léo Mendes" loading="lazy">
-            <img src="assets/images/galeria-03.webp" alt="Turma kids da RAD reunida em frente à bandeira do Projeto Guerreiros de Fé" loading="lazy">
-            <img src="assets/images/galeria-02.webp" alt="Alunos e professores da RAD posando em frente à bandeira do projeto" loading="lazy">
-            <img src="assets/images/galeria-01.webp" alt="Professores e alunos da RAD de kimono no tatame" loading="lazy">
-            <img src="assets/images/img_hero.webp" alt="Turma da RAD Jiu Jitsu reunida com o Mestre Rad após o treino" loading="lazy">
+            <img src="{% static 'rad/assets/images/galeria-04.webp' %}" alt="Alunos e professores de vários polos da RAD reunidos em um encontro no tatame" loading="lazy">
+            <img src="{% static 'rad/assets/images/galeria-05.webp' %}" alt="Alunos do polo Turano com o professor Léo Mendes" loading="lazy">
+            <img src="{% static 'rad/assets/images/galeria-03.webp' %}" alt="Turma kids da RAD reunida em frente à bandeira do Projeto Guerreiros de Fé" loading="lazy">
+            <img src="{% static 'rad/assets/images/galeria-02.webp' %}" alt="Alunos e professores da RAD posando em frente à bandeira do projeto" loading="lazy">
+            <img src="{% static 'rad/assets/images/galeria-01.webp' %}" alt="Professores e alunos da RAD de kimono no tatame" loading="lazy">
+            <img src="{% static 'rad/assets/images/img_hero.webp' %}" alt="Turma da RAD Jiu Jitsu reunida com o Mestre Rad após o treino" loading="lazy">
         </div>
 
         <div class="btn-galeria">
@@ -413,7 +436,7 @@
     <div class="footer-top">
         <div class="footer-brand">
             <div class="footer-logo">
-                <div class="logo-quadrado"><img src="assets/images/logo-equipe.webp" alt="Logo da equipe RAD Jiu Jitsu"></div>
+                <div class="logo-quadrado"><img src="{% static 'rad/assets/images/logo-equipe.webp' %}" alt="Logo da equipe RAD Jiu Jitsu"></div>
                 <h2>RAD JIU JITSU</h2>
             </div>
             <p>
@@ -443,6 +466,8 @@
         <p>© 2026 RAD Jiu Jitsu · Projeto Guerreiros de Fé. Todos os direitos reservados.</p>
     </div>
 </footer>
-    <script src="js/script.js"></script>
+    {# Polos cadastrados no painel, lidos pelo js/script.js #}
+    {{ polos_site|json_script:"polos-dados" }}
+    <script src="{% static 'rad/js/script.js' %}"></script>
 </body>
 </html>

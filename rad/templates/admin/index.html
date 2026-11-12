@@ -1,0 +1,9 @@
+{% extends "admin/index.html" %}
+{% load painel_rad %}
+
+{# Resumo em largura total, acima da lista de cadastros #}
+{% block content_title %}
+{{ block.super }}
+{% painel_resumo %}
+<h2 class="rad-secao-titulo">Tudo o que dá para editar</h2>
+{% endblock %}
