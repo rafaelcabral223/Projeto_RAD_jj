@@ -329,7 +329,8 @@ const elementosRevelar = document.querySelectorAll(`
     .galeria-fotos,
     .btn-galeria,
     .apoie-cabecalho,
-    .apoie-card
+    .apoie-card,
+    .destaque-conteudo
 `);
 
 if (!reduzirMovimento) {

@@ -3,6 +3,9 @@
 
 {% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | Painel RAD{% endblock %}
 
+{# Painel sempre no tema claro: o modo escuro do Django misturava com as cores da RAD #}
+{% block dark-mode-vars %}{% endblock %}
+
 {% block extrastyle %}
 {{ block.super }}
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,9 +22,6 @@
         <span>RAD Jiu Jitsu <small>Painel</small></span>
     </a>
 </div>
-{% if user.is_anonymous %}
-  {% include "admin/color_theme_toggle.html" %}
-{% endif %}
 {% endblock %}
 
 {% block nav-global %}{% endblock %}
