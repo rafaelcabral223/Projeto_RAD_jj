@@ -119,6 +119,9 @@ document.querySelectorAll("[data-whatsapp]").forEach((link) => {
 function turmaGeral(dias, horario) {
     return { nome: "Turma geral", idade: "A partir de 5 anos", dias, horario };
 }
+function turmaUnica(dias, horario) {
+    return { nome: "Treino", idade: "Turma única", dias, horario };
+}
 function turmaKids(idade, dias, horario) {
     return { nome: "Kids", idade, dias, horario };
 }
@@ -132,7 +135,8 @@ function turmaAdultos(dias, horario) {
 // Dados dos polos (respostas do formulário de 11/11/2026).
 // mapa: coordenadas "lat,lng" para o pin ficar no lugar certo.
 //       Sem coordenadas, o mapa busca pelo endereço.
-// Itens marcados com CONFIRMAR ainda precisam de resposta do Mestre Rad.
+// O que o Mestre Rad não informou aparece no site como "A confirmar".
+// Quando o site tiver banco de dados, ele mesmo vai poder ajustar.
 const polos = [
     // ---------- Rio de Janeiro ----------
     {
@@ -146,14 +150,13 @@ const polos = [
             turmaKids("5 a 10 anos", "Seg · Qua · Sex", "18h"),
             turmaAdolescentes("Seg · Qua · Sex", "19h"),
             turmaAdultos("Seg · Qua · Sex", "20h")
-            // CONFIRMAR: em setembro ele citou também "terças e quintas às 8h"
         ]
     },
     {
         nome: "Rocinha",
         endereco: "Quadra da Rua 1 – Rocinha, Rio de Janeiro/RJ – CEP 22451-971",
         referencia: "Na quadra da comunidade",
-        mapa: "-22.9906911,-43.2458365", // CONFIRMAR: pin aproximado (Rua Um)
+        mapa: "-22.9906911,-43.2458365", // pin aproximado (Rua Um)
         professor: "Fabio Bino",
         whatsapp: "5521997085082",
         turmas: [
@@ -178,11 +181,11 @@ const polos = [
         mapa: "-22.9504832,-43.1870939",
         professor: "Mestre Rad (Rogério Guedes)",
         whatsapp: "5521982121315",
-        // CONFIRMAR: ele não informou a divisão das turmas nesse polo
+        // Divisão não informada (nem no formulário, nem nas mensagens): turma única
         turmas: [
-            turmaGeral("Seg", "9h"),
-            turmaGeral("Ter · Qui", "21h"),
-            turmaGeral("Qua · Sex", "5h30")
+            turmaUnica("Seg", "9h"),
+            turmaUnica("Ter · Qui", "21h"),
+            turmaUnica("Qua · Sex", "5h30")
         ]
     },
     {
@@ -203,8 +206,8 @@ const polos = [
         mapa: "-22.9259096,-43.2504032",
         professor: "Rodrigo Figueiredo",
         whatsapp: "5521964450143",
-        // CONFIRMAR: ele mandou "seg a sex, 18h, 19h e 20h" e marcou 3 turmas.
-        // Seguimos o mesmo padrão do PPG (18h kids, 19h adolescentes, 20h adultos).
+        // Horários das mensagens de setembro ("seg a sex, 18h, 19h e 20h"),
+        // no mesmo padrão do PPG (18h kids, 19h juvenil, 20h adultos).
         turmas: [
             turmaKids("5 a 10 anos", "Seg a Sex", "18h"),
             turmaAdolescentes("Seg a Sex", "19h"),
@@ -217,10 +220,10 @@ const polos = [
         referencia: "Quadra da associação de moradores",
         mapa: "-22.9410274,-43.2437691",
         professor: "Roney Galvão",
-        whatsapp: "5531994987656", // CONFIRMAR: DDD 31 (Minas Gerais)
-        // CONFIRMAR: marcou 2 turmas, mas só informou "20h"
+        whatsapp: "5531994987656",
+        // Marcou 2 turmas, mas só informou "20h"
         turmas: [
-            turmaKids("5 a 15 anos", "Ter · Qui", "A definir"),
+            turmaKids("5 a 15 anos", "Ter · Qui", "A confirmar"),
             turmaAdultos("Ter · Qui", "20h")
         ]
     },
@@ -232,7 +235,7 @@ const polos = [
         professor: "Guilherme Mompa",
         whatsapp: "5521994380493",
         turmas: [
-            turmaGeral("Seg a Sex", "20h") // CONFIRMAR os dias
+            turmaGeral("Seg a Sex", "20h") // dias da mensagem de setembro
         ]
     },
     {

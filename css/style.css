@@ -1186,9 +1186,14 @@ html {
     gap: 0.5rem;
 }
 
+.galeria-intro {
+    margin-bottom: 1.5rem;
+    color: #6B7285;
+}
+
 .galeria-fotos img {
     width: 100%;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 4 / 3;
     object-fit: cover;
     border-radius: 3px;
 }
@@ -1870,7 +1875,7 @@ html {
     /* GALERIA */
 
     .galeria-fotos{
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
 
     /* ---------- APOIE ---------- */
